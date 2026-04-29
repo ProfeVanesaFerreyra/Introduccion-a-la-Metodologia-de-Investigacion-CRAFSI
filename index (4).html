@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investigación en Enfermería · Prof. Vanesa Ferreyra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rd:#8b3a5a;--rm:#c06080;--rs:#e8a0b8;--rp:#f5d6e4;--rb:#fdf0f5;--rl2:#fef8fb;
+  --cr:#fdf6f0;--cd:#f0e6da;--cb:#e8d8cc;--tx:#2a1a22;--mu:#7a5a68;--br:#e8c8d8;
+  --sv:#5a7a5a;--sc:#ddeedd;--do:#9a7a3a;--dc:#f5edda;--ro:#b03a3a;
+  --r:8px;--rl:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cr);color:var(--tx);line-height:1.75;font-size:16px}
+header{background:var(--rd);position:sticky;top:0;z-index:200;border-bottom:3px solid var(--rm);box-shadow:0 2px 20px rgba(139,58,90,.18)}
+.hdr{max-width:1140px;margin:auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-icon{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.brand-text .t1{font-family:'Playfair Display',serif;font-size:15px;color:#fff;font-weight:500}
+.brand-text .t2{font-size:10px;color:var(--rp);text-transform:uppercase;letter-spacing:.1em}
+nav.top{display:flex;gap:3px;flex-wrap:wrap}
+nav.top a{color:var(--rp);text-decoration:none;font-size:12px;font-weight:500;padding:5px 10px;border-radius:20px;transition:background .15s,color .15s}
+nav.top a:hover{background:rgba(255,255,255,.15);color:#fff}
+.sec-nav{background:var(--rl2);border-bottom:1px solid var(--br);overflow-x:auto;position:sticky;top:62px;z-index:100}
+.sec-nav-inner{max-width:1140px;margin:auto;display:flex;padding:0 28px}
+.sec-nav a{color:var(--mu);text-decoration:none;font-size:13px;font-weight:500;padding:13px 15px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.sec-nav a:hover{color:var(--rd);border-bottom-color:var(--rs)}
+.hero{background:linear-gradient(135deg,var(--rd) 0%,#a04870 45%,#c06880 100%);color:#fff;padding:72px 28px 68px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(255,255,255,.06) 0%,transparent 60%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40px;background:var(--cr);clip-path:ellipse(55% 100% at 50% 100%)}
+.hero-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--rp);margin-bottom:16px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,50px);font-weight:700;line-height:1.15;max-width:740px;margin:0 auto 18px}
+.hero h1 em{font-style:italic;color:var(--rp)}
+.hero p{font-size:15px;color:rgba(255,255,255,.82);max-width:580px;margin:0 auto 30px;line-height:1.65}
+.hero-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hbadge{font-size:12px;padding:6px 16px;border-radius:20px;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.9);font-weight:500}
+.wrap{max-width:1140px;margin:0 auto;padding:52px 28px 16px}
+.wrap-b{max-width:1140px;margin:0 auto;padding:16px 28px 48px}
+.ey{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--rm);font-weight:600;margin-bottom:6px}
+.st{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--rd);margin-bottom:8px;line-height:1.25}
+.sd{font-size:14px;color:var(--mu);max-width:680px;margin-bottom:32px;line-height:1.7}
+.card{background:#fff;border:1px solid var(--br);border-radius:var(--rl);padding:22px 26px;transition:box-shadow .2s,border-color .2s}
+.card:hover{box-shadow:0 6px 28px rgba(139,58,90,.1);border-color:var(--rs)}
+.step-tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:8px;background:var(--rp);color:var(--rd)}
+.step-head{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--rd);margin-bottom:10px;line-height:1.3}
+.step-body{font-size:14px;color:var(--mu);line-height:1.75;margin-bottom:14px}
+.def-box{background:var(--rb);border-left:4px solid var(--rs);border-radius:0 var(--r) var(--r) 0;padding:12px 16px;margin:12px 0;font-size:14px;font-family:'Playfair Display',serif;font-style:italic;color:var(--rd);line-height:1.6}
+.alert-box{background:var(--dc);border:1px solid #d4b07a;border-radius:var(--r);padding:12px 16px;font-size:13px;color:#5a3a0a;line-height:1.6;margin-top:14px}
+.alert-box strong{display:block;margin-bottom:4px;color:var(--do)}
+.ok-box{background:var(--sc);border:1px solid #9abf9a;border-radius:var(--r);padding:10px 14px;font-size:13px;color:#2a4a2a;line-height:1.6;margin-top:6px}
+.ok-box strong{font-weight:600;margin-right:4px}
+.err-box{background:#fff5f5;border:1px solid #f0a0a0;border-radius:var(--r);padding:10px 14px;font-size:13px;color:#7a1a1a;line-height:1.6;margin-top:6px}
+.err-box strong{font-weight:600;margin-right:4px}
+.sesgo-box{background:#fff5f8;border:2px solid var(--rs);border-radius:var(--rl);padding:18px 20px;margin:18px 0}
+.sesgo-head{font-size:14px;font-weight:600;color:var(--rd);margin-bottom:10px}
+.sesgo-body{font-size:13.5px;color:var(--tx);line-height:1.7}
+.nlist{list-style:none;display:flex;flex-direction:column;gap:7px;margin:12px 0}
+.nlist li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.55}
+.nlist li::before{content:attr(data-n);font-size:10px;font-weight:700;min-width:24px;height:24px;border-radius:50%;background:var(--rp);color:var(--rd);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.p-err{background:#fff5f5;border:1px solid #f0a8a8;border-radius:var(--r);padding:12px 14px;font-size:13px;color:#6b1a1a;line-height:1.55}
+.p-ok{background:#f2faf2;border:1px solid #8aba8a;border-radius:var(--r);padding:12px 14px;font-size:13px;color:#1a3a1a;line-height:1.55}
+.p-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:block}
+.p-err .p-lbl{color:var(--ro)}.p-ok .p-lbl{color:var(--sv)}
+.p-exp{font-size:11.5px;color:var(--mu);margin-top:7px;padding-top:7px;border-top:1px solid rgba(0,0,0,.07);font-style:italic}
+.formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0}
+.f-box{border-radius:var(--r);padding:14px;border:1px solid}
+.f-q{font-size:16px;font-weight:700;font-family:'Playfair Display',serif;margin-bottom:4px}
+.f-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.f-ex{font-size:12px;color:var(--mu);line-height:1.45}
+.fb1{background:#fdf0f8;border-color:var(--rp)}.fb1 .f-q{color:var(--rd)}.fb1 .f-lbl{color:var(--rm)}
+.fb2{background:#f0f8f0;border-color:#c0dcc0}.fb2 .f-q{color:#2a5a2a}.fb2 .f-lbl{color:var(--sv)}
+.fb3{background:var(--dc);border-color:#ddc898}.fb3 .f-q{color:#5a3a0a}.fb3 .f-lbl{color:var(--do)}
+.fb4{background:#f0f0f8;border-color:#c0c0e0}.fb4 .f-q{color:#2a2a5a}.fb4 .f-lbl{color:#5a5a9a}
+.tabla-wrap{overflow-x:auto;margin-top:16px;border-radius:var(--rl);border:1px solid var(--br)}
+table.cmp{width:100%;border-collapse:collapse;font-size:13px}
+table.cmp thead th{background:var(--rd);color:#fff;padding:11px 14px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+table.cmp tbody tr{transition:background .12s}
+table.cmp tbody tr:nth-child(even){background:var(--rb)}
+table.cmp tbody tr:hover{background:var(--rp)}
+table.cmp tbody td{padding:10px 14px;vertical-align:top;line-height:1.5;border-bottom:1px solid #f0e0e8}
+table.cmp tbody tr:last-child td{border-bottom:none}
+.td-err{color:#7a1a2a;font-style:italic}.td-ok{color:#1a3a1a;font-style:italic}
+.td-err::before{content:'x ';font-style:normal;font-weight:700}.td-ok::before{content:'✓ ';font-style:normal;font-weight:700}
+.var-section{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
+.var-col{border-radius:var(--rl);overflow:hidden;border:1px solid var(--br)}
+.var-header{padding:16px 20px}
+.var-header.vi{background:linear-gradient(135deg,#7a2a8a 0%,#a040b0 100%)}
+.var-header.vd{background:linear-gradient(135deg,var(--rd) 0%,var(--rm) 100%)}
+.var-header .vh-tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.7);margin-bottom:4px;font-weight:600}
+.var-header .vh-title{font-family:'Playfair Display',serif;font-size:17px;color:#fff;font-weight:700}
+.var-header .vh-def{font-size:12px;color:rgba(255,255,255,.85);margin-top:6px;line-height:1.5}
+.var-list{list-style:none;background:#fff}
+.var-list li{padding:9px 18px;font-size:13px;color:var(--tx);line-height:1.5;border-bottom:1px solid var(--rb);display:flex;align-items:flex-start;gap:10px;transition:background .12s}
+.var-list li:hover{background:var(--rb)}
+.var-list li:last-child{border-bottom:none}
+.var-list li .vn{font-size:10px;font-weight:700;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.vi .var-list li .vn{background:#eeddf8;color:#5a2a7a}.vd .var-list li .vn{background:var(--rp);color:var(--rd)}
+.var-list li .vtxt{flex:1}
+.var-list li .vcat{font-size:10px;color:var(--mu);font-style:italic;display:block;margin-top:1px}
+.plist{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.p-item{background:var(--rb);border-left:3px solid var(--rs);border-radius:0 var(--r) var(--r) 0;padding:10px 14px;font-size:13px;font-family:'Playfair Display',serif;font-style:italic;color:#3a1a28;line-height:1.55;cursor:default;transition:background .15s}
+.p-item:hover{background:var(--rp)}
+.p-num{font-size:10px;font-weight:700;color:var(--rm);margin-bottom:3px;display:block;font-style:normal;font-family:'Nunito',sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.p-note{font-size:11.5px;color:var(--mu);margin-top:5px;font-style:normal;font-family:'Nunito',sans-serif;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.chip{font-size:12px;padding:5px 14px;border-radius:20px;font-weight:600}
+.chip-r{background:var(--rp);color:var(--rd)}.chip-s{background:var(--sc);color:var(--sv)}.chip-m{background:#eeddf8;color:#5a2a7a}
+.transf{display:flex;align-items:flex-start;gap:10px;margin:12px 0;padding:14px 16px;background:var(--cd);border-radius:var(--r);flex-wrap:wrap}
+.transf-item{flex:1;min-width:200px}
+.t-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--rm);margin-bottom:4px}
+.t-txt{font-family:'Playfair Display',serif;font-style:italic;font-size:13.5px;color:var(--tx);line-height:1.5}
+.t-arr{font-size:22px;color:var(--rs);margin-top:20px;flex-shrink:0}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.ij-card{background:#fff;border:1px solid var(--br);border-radius:var(--rl);overflow:hidden}
+.ij-header{padding:18px 20px 14px}
+.ij-header.ih{background:linear-gradient(135deg,#5a3a6a 0%,#7a5a9a 100%)}
+.ij-header.jh{background:linear-gradient(135deg,var(--rd) 0%,#a04870 100%)}
+.ij-tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.65);font-weight:700;margin-bottom:5px}
+.ij-title{font-family:'Playfair Display',serif;font-size:18px;color:#fff;font-weight:700}
+.ij-def{font-size:12px;color:rgba(255,255,255,.82);margin-top:7px;line-height:1.55}
+.ij-body{padding:16px 20px}
+.ij-sec{margin-bottom:14px}
+.ij-sec:last-child{margin-bottom:0}
+.ij-sec-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--rd);margin-bottom:6px}
+.ij-sec-text{font-size:13px;color:var(--mu);line-height:1.65}
+.ejes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:20px}
+.eje-card{background:#fff;border:1px solid var(--br);border-radius:var(--rl);overflow:hidden;transition:box-shadow .2s,transform .2s}
+.eje-card:hover{box-shadow:0 8px 30px rgba(139,58,90,.12);transform:translateY(-2px)}
+.eje-top{padding:16px 18px 12px}
+.eje-letter{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:10px}
+.eje-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--rd);margin-bottom:4px}
+.eje-sub{font-size:12px;color:var(--mu);line-height:1.5}
+.eje-topics{padding:10px 18px 14px;border-top:1px solid var(--cb);background:var(--rl2)}
+.eje-topic{font-size:12px;color:var(--tx);line-height:1.5;padding:3px 0;display:flex;align-items:flex-start;gap:7px}
+.eje-topic::before{content:'›';color:var(--rs);font-weight:700;flex-shrink:0}
+.chk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:20px}
+.chk-card{background:#fff;border:1px solid var(--br);border-radius:var(--rl);padding:16px 18px}
+.chk-title{font-size:13px;font-weight:600;color:var(--ro);margin-bottom:6px}
+.chk-desc{font-size:13px;color:var(--mu);line-height:1.55}
+.prac-wrap{max-width:1140px;margin:0 auto;padding:16px 28px 56px}
+.score-inner{background:#fff;border:1px solid var(--br);border-radius:var(--rl);padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.score-txt{font-size:14px;color:var(--mu)}
+.score-val{font-size:24px;font-weight:700;font-family:'Playfair Display',serif;color:var(--rd)}
+.reset-btn{margin-left:auto;font-size:13px;padding:8px 18px;border-radius:20px;border:1px solid var(--br);background:var(--rl2);cursor:pointer;color:var(--mu);font-family:'Nunito',sans-serif;font-weight:500}
+.reset-btn:hover{background:var(--rp);color:var(--rd)}
+.quiz-card{background:#fff;border:1px solid var(--br);border-radius:var(--rl);padding:22px 26px;margin-bottom:14px}
+.quiz-n{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--rm);margin-bottom:8px}
+.quiz-q{font-size:15px;font-family:'Playfair Display',serif;font-style:italic;color:var(--tx);margin-bottom:16px;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--r);border:1px solid var(--br);cursor:pointer;font-size:13.5px;transition:background .15s,border-color .15s}
+.opt:hover{background:var(--rb);border-color:var(--rs)}
+.opt.correct{background:#f0faf0;border-color:#8aba8a;color:#1a3a1a}
+.opt.wrong{background:#fff5f5;border-color:#f0a0a0;color:#6b1a1a}
+.opt .ol{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--br);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;color:var(--mu)}
+.opt.correct .ol{background:var(--sv);border-color:var(--sv);color:#fff}
+.opt.wrong .ol{background:var(--ro);border-color:var(--ro);color:#fff}
+.feedback{display:none;margin-top:12px;padding:11px 15px;border-radius:var(--r);font-size:13px;line-height:1.6}
+.feedback.show{display:block}
+.fb-ok{background:#f0faf0;border:1px solid #8aba8a;color:#1a3a1a}
+.fb-err{background:#fff5f5;border:1px solid #f0a0a0;color:#6b1a1a}
+.fb-ok::before{content:'✓ ';font-weight:700}.fb-err::before{content:'✗ ';font-weight:700}
+.biblio{background:var(--rd);color:#fff;padding:44px 28px}
+.biblio-in{max-width:1140px;margin:auto}
+.biblio-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:16px;color:var(--rp)}
+.bib-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.bib-list li{font-size:13px;color:rgba(255,255,255,.8);line-height:1.65;padding-left:16px;border-left:2px solid var(--rs)}
+footer{background:#1a0a12;color:#888;text-align:center;font-size:12px;padding:22px 28px;line-height:1.7}
+footer strong{color:#ccc}
+@media(max-width:760px){
+  nav.top,.sec-nav{display:none}.hdr{padding:10px 16px}.hero{padding:44px 16px 52px}
+  .wrap,.wrap-b{padding:28px 16px 12px}.par,.intro-grid,.var-section{grid-template-columns:1fr}
+  .formula-grid{grid-template-columns:1fr 1fr}.prac-wrap{padding:12px 16px 40px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr">
+    <div class="brand">
+      <div class="brand-icon">&#127973;</div>
+      <div class="brand-text"><div class="t1">Investigación en Enfermería</div><div class="t2">Prof. Vanesa Ferreyra · Cátedra 2026</div></div>
+    </div>
+    <nav class="top">
+      <a href="#tema">Tema</a><a href="#intro">Introducción</a><a href="#justif">Justificación</a>
+      <a href="#pregunta">Pregunta</a><a href="#variables">Variables</a><a href="#objetivos">Objetivos</a>
+      <a href="#ejes">Ejes</a><a href="#practica">Práctica</a>
+    </nav>
+  </div>
+</header>
+<div class="sec-nav">
+  <div class="sec-nav-inner">
+    <a href="#tema">1· Tema</a><a href="#problema">2· Problema</a><a href="#intro">3· Introducción</a>
+    <a href="#justif">4· Justificación</a><a href="#pregunta">5· Pregunta</a><a href="#variables">6· Variables</a>
+    <a href="#objetivos">7· Objetivos</a><a href="#ejes">8· Ejes</a><a href="#checklist">9· Checklist</a><a href="#practica">10· Práctica</a>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-kicker">Metodología de la Investigación · Guía de Referencia 2026</div>
+  <h1>Del tema al objetivo:<br><em>el hilo conductor</em> de tu proyecto</h1>
+  <p>Cada etapa del diseño teórico se apoya en la anterior. Esta guía te acompaña paso a paso con ejemplos de enfermería y salud pública.</p>
+  <div class="hero-badges">
+    <div class="hbadge">Hernández Sampieri (2014)</div>
+    <div class="hbadge">Arias (2012)</div>
+    <div class="hbadge">Pineda, Alvarado y Canales (2008)</div>
+  </div>
+</div>
+
+<!-- 1 TEMA -->
+<section class="wrap" id="tema">
+  <div class="ey">Paso 1</div><div class="st">Selección del Tema</div>
+  <div class="sd">El tema es el área general de conocimiento desde la cual nace la investigación. Emerge de la observación crítica de la práctica profesional (Arias, 2012; Sampieri, 2014).</div>
+  <div class="card">
+    <div class="def-box">El <strong>tema</strong> responde a un área amplia. La <strong>idea de investigación</strong> es su precisión: delimita quiénes, qué, dónde y cuándo.</div>
+    <ul class="nlist">
+      <li data-n="1"><span><strong>Identificar un área de interés</strong> ligada a la práctica (salud comunitaria, cuidados críticos, pediatría, salud mental, etc.).</span></li>
+      <li data-n="2"><span><strong>Consulta bibliográfica inicial:</strong> verificar qué se ha investigado para no repetir lo ya resuelto.</span></li>
+      <li data-n="3"><span><strong>Consulta a expertos:</strong> dialogar con docentes o enfermeros con trayectoria en el área.</span></li>
+      <li data-n="4"><span><strong>Delimitación progresiva:</strong> de lo general hacia lo concreto y medible.</span></li>
+      <li data-n="5"><span><strong>Factibilidad:</strong> acceso a datos, tiempo disponible y viabilidad ética.</span></li>
+    </ul>
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin:16px 0 8px;">Ejemplos: Tema amplio vs. Idea delimitada</p>
+    <div class="par">
+      <div class="p-err"><span class="p-lbl">✗ Tema (muy amplio)</span>"La salud de los niños"<div class="p-exp">Sin variable, población, lugar ni tiempo. Inabarcable.</div></div>
+      <div class="p-ok"><span class="p-lbl">✓ Idea delimitada</span>"Desnutrición en niños de 0 a 5 años atendidos en el CS N°3 de Morón durante 2025"<div class="p-exp">Variable, población, espacio y tiempo definidos.</div></div>
+    </div>
+    <div class="par" style="margin-top:10px;">
+      <div class="p-err"><span class="p-lbl">✗ Tema (muy amplio)</span>"Estrés en enfermería"<div class="p-exp">No precisa tipo de estrés, en quiénes, ni cuándo.</div></div>
+      <div class="p-ok"><span class="p-lbl">✓ Idea delimitada</span>"Niveles de estrés laboral en enfermeros del turno nocturno de la UTI del Hospital Municipal de Morón, 2025"<div class="p-exp">Variable operacionalizable, unidad de análisis, contexto y tiempo precisos.</div></div>
+    </div>
+    <div class="par" style="margin-top:10px;">
+      <div class="p-err"><span class="p-lbl">✗ Tema (muy amplio)</span>"Adultos mayores y enfermería"</div>
+      <div class="p-ok"><span class="p-lbl">✓ Idea delimitada</span>"Riesgo de caídas en adultos mayores institucionalizados en hogares geriátricos de Morón, primer semestre 2025"</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 PROBLEMA -->
+<section class="wrap" id="problema">
+  <div class="ey">Paso 2</div><div class="st">Planteamiento del Problema</div>
+  <div class="sd">Describe la situación que genera la necesidad de investigar. Sampieri (2014) lo define como "afinar y estructurar más formalmente la idea de investigación".</div>
+  <div class="card">
+    <div class="def-box">Un planteamiento sólido evidencia la brecha entre lo que <em>debería ocurrir</em> (evidencia, protocolos) y lo que <em>realmente ocurre</em> en el contexto de estudio.</div>
+    <ul class="nlist">
+      <li data-n="1"><span><strong>Objetivos del estudio:</strong> las guías que indican adónde se quiere llegar.</span></li>
+      <li data-n="2"><span><strong>Preguntas de investigación:</strong> el "qué" del estudio de manera precisa y delimitada.</span></li>
+      <li data-n="3"><span><strong>Justificación:</strong> valor teórico, utilidad metodológica y relevancia social.</span></li>
+      <li data-n="4"><span><strong>Viabilidad:</strong> análisis de recursos (tiempo, acceso, instrumentos).</span></li>
+      <li data-n="5"><span><strong>Evaluación de deficiencias en el conocimiento:</strong> ¿qué es lo que aún no se sabe?</span></li>
+    </ul>
+    <div class="alert-box"><strong>Relevancia según Arias (2012)</strong><strong>Conveniencia:</strong> ¿Para qué sirve? · <strong>Relevancia social:</strong> ¿Quiénes se benefician? · <strong>Valor teórico:</strong> ¿Aporta conocimiento nuevo?</div>
+  </div>
+</section>
+
+<!-- 3 INTRODUCCIÓN -->
+<section class="wrap" id="intro">
+  <div class="ey">Paso 3</div><div class="st">La Introducción del Proyecto</div>
+  <div class="sd">La introducción es el primer apartado formal del informe de investigación. Es la carta de presentación del problema y el contexto en que se inscribe el estudio.</div>
+  <div class="intro-grid">
+    <div class="ij-card">
+      <div class="ij-header ih"><div class="ij-tag">Definición</div><div class="ij-title">¿Qué es la introducción?</div><div class="ij-def">Texto que orienta al lector sobre el tema, el problema y el propósito del estudio. Responde: ¿de qué trata esta investigación y por qué existe?</div></div>
+      <div class="ij-body">
+        <div class="ij-sec"><div class="ij-sec-title">Función</div><div class="ij-sec-text">Contextualiza al lector. Le permite comprender el tema antes del desarrollo metodológico. No describe la metodología: la anticipa brevemente.</div></div>
+        <div class="ij-sec"><div class="ij-sec-title">Extensión recomendada</div><div class="ij-sec-text">Entre media y dos páginas. Breve y densa en contenido, sin repetir lo que ya estará en otros apartados.</div></div>
+        <div class="ij-sec"><div class="ij-sec-title">Redacción</div><div class="ij-sec-text">En tercera persona o impersonal. Tiempo presente para definiciones, pasado para lo ya investigado. Estilo académico: claro, sin adjetivos valorativos.</div></div>
+      </div>
+    </div>
+    <div class="ij-card">
+      <div class="ij-header ih"><div class="ij-tag">Estructura</div><div class="ij-title">¿Qué debe contener?</div><div class="ij-def">Va de lo general a lo particular. Cada elemento prepara al lector para el siguiente.</div></div>
+      <div class="ij-body">
+        <ul class="nlist">
+          <li data-n="1"><span><strong>Presentación del área temática general:</strong> campo del conocimiento o de la salud del que trata el estudio.</span></li>
+          <li data-n="2"><span><strong>Descripción del problema:</strong> qué situación problemática se observa en el contexto.</span></li>
+          <li data-n="3"><span><strong>Relevancia del problema:</strong> datos epidemiológicos, estadísticas o normativas que justifiquen su estudio.</span></li>
+          <li data-n="4"><span><strong>Vacío de conocimiento:</strong> qué es lo que no se sabe o no se estudió en ese contexto específico.</span></li>
+          <li data-n="5"><span><strong>Propósito del estudio:</strong> enuncia brevemente el objetivo general.</span></li>
+          <li data-n="6"><span><strong>Estructura del informe:</strong> (opcional) breve descripción de los apartados del trabajo.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:18px;">
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin-bottom:10px;">Ejemplo de fragmento introductorio bien redactado</p>
+    <div class="ok-box"><strong>✓ Ejemplo:</strong> "Las úlceras por presión constituyen uno de los eventos adversos más frecuentes en pacientes hospitalizados con movilidad reducida. Según la OMS (2021), su prevalencia en unidades de internación puede superar el 8% en contextos de recursos limitados. A nivel local, no se dispone de datos sistematizados sobre su frecuencia en el servicio de clínica médica del Hospital Municipal de Morón, lo que representa un vacío de conocimiento relevante. El presente estudio se propone determinar la frecuencia de úlceras por presión en dicha unidad durante el año 2025."<div class="p-exp">Contiene: área temática, descripción del problema, relevancia con datos, vacío local y propósito del estudio.</div></div>
+    <div class="err-box" style="margin-top:10px;"><strong>✗ Error frecuente:</strong> "En este trabajo vamos a investigar el burnout en enfermería porque nos parece muy importante y creemos que es un tema muy relevante hoy en día."<div class="p-exp">Primera persona del plural, adjetivos subjetivos, lenguaje coloquial, sin datos ni contextualización.</div></div>
+  </div>
+</section>
+
+<!-- 4 JUSTIFICACIÓN -->
+<section class="wrap" id="justif">
+  <div class="ey">Paso 4</div><div class="st">La Justificación del Estudio</div>
+  <div class="sd">La justificación responde: ¿por qué vale la pena realizar esta investigación? Según Arias (2012) y Sampieri (2014), una buena justificación responde a cinco criterios.</div>
+  <div class="intro-grid">
+    <div class="ij-card">
+      <div class="ij-header jh"><div class="ij-tag">Definición</div><div class="ij-title">¿Qué es la justificación?</div><div class="ij-def">Apartado que expone los argumentos que explican por qué el estudio debe realizarse. Convence al lector y al comité evaluador de la pertinencia del proyecto.</div></div>
+      <div class="ij-body">
+        <div class="ij-sec"><div class="ij-sec-title">Diferencia con la introducción</div><div class="ij-sec-text">La introducción <em>presenta</em> el problema. La justificación <em>argumenta</em> por qué merece investigarse. Son apartados distintos con propósitos distintos.</div></div>
+        <div class="ij-sec"><div class="ij-sec-title">Extensión recomendada</div><div class="ij-sec-text">Una a dos páginas. Cada criterio puede desarrollarse en un párrafo. Debe apoyarse en datos, estadísticas o normativas que respalden la urgencia del estudio.</div></div>
+      </div>
+    </div>
+    <div class="ij-card">
+      <div class="ij-header jh"><div class="ij-tag">Cinco criterios (Sampieri, 2014)</div><div class="ij-title">¿Cómo justificar un estudio?</div><div class="ij-def">No es obligatorio cubrir los cinco, pero cuantos más se cumplan, más sólida es la justificación.</div></div>
+      <div class="ij-body">
+        <ul class="nlist">
+          <li data-n="1"><span><strong>Conveniencia:</strong> ¿para qué sirve? ¿Qué problema práctico resuelve o contribuye a resolver?</span></li>
+          <li data-n="2"><span><strong>Relevancia social:</strong> ¿quiénes se benefician? Pacientes, comunidad, institución, profesión.</span></li>
+          <li data-n="3"><span><strong>Valor teórico:</strong> ¿aporta conocimiento nuevo? ¿Llena un vacío o confirma/refuta una teoría?</span></li>
+          <li data-n="4"><span><strong>Utilidad metodológica:</strong> ¿crea o adapta instrumentos? ¿Propone una metodología replicable?</span></li>
+          <li data-n="5"><span><strong>Implicaciones prácticas:</strong> ¿contribuye a resolver un problema concreto de salud o de la práctica asistencial?</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:18px;">
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin-bottom:10px;">Ejemplos de justificación bien desarrollada por criterio</p>
+    <div class="ok-box"><strong>✓ Conveniencia:</strong> "El presente estudio permitirá conocer la frecuencia de Burnout en enfermeros del turno nocturno, información que podrá orientar políticas institucionales de prevención del desgaste laboral."</div>
+    <div class="ok-box"><strong>✓ Relevancia social:</strong> "Los resultados beneficiarán directamente al personal de enfermería e indirectamente a los pacientes, dado que el agotamiento emocional impacta en la calidad del cuidado prestado."</div>
+    <div class="ok-box"><strong>✓ Valor teórico:</strong> "Actualmente no existen datos locales sobre la prevalencia de Burnout en este servicio. El estudio contribuirá a llenar ese vacío y a generar una línea de base para investigaciones longitudinales futuras."</div>
+    <div class="err-box" style="margin-top:10px;"><strong>✗ Justificación vaga:</strong> "Este tema es importante porque la salud de los enfermeros importa mucho y debería investigarse más."<div class="p-exp">Sin especificar qué se conocerá, quiénes se beneficiarán ni qué vacío existe. Sin datos ni argumentos concretos.</div></div>
+  </div>
+</section>
+
+<!-- 5 PREGUNTA -->
+<section class="wrap" id="pregunta">
+  <div class="ey">Paso 5</div><div class="st">La Pregunta de Investigación</div>
+  <div class="sd">La pregunta traduce el problema a términos interrogativos precisos. Su redacción condiciona variables, diseño, objetivos e instrumento (Sampieri, 2014; Pineda et al., 2008).</div>
+  <div class="card">
+    <div class="def-box">La pregunta debe poder responderse con <em>datos observables y medibles</em>. Si la única respuesta posible es "sí" o "no", o requiere un juicio de valor, está mal formulada.</div>
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin:16px 0 8px;">Fórmula metodológica — 4 componentes esenciales</p>
+    <div class="formula-grid">
+      <div class="f-box fb1"><div class="f-q">¿En quiénes?</div><div class="f-lbl">Unidad de análisis</div><div class="f-ex">Pacientes, enfermeros, estudiantes, cuidadores, comunidad</div></div>
+      <div class="f-box fb2"><div class="f-q">¿Qué atributo?</div><div class="f-lbl">Variable</div><div class="f-ex">Nivel de estrés, adherencia, prevalencia, calidad del cuidado</div></div>
+      <div class="f-box fb3"><div class="f-q">¿Dónde?</div><div class="f-lbl">Dimensión espacial</div><div class="f-ex">Servicio, hospital, centro de salud, municipio, institución</div></div>
+      <div class="f-box fb4"><div class="f-q">¿Cuándo?</div><div class="f-lbl">Dimensión temporal</div><div class="f-ex">Año, semestre, período claramente acotado</div></div>
+    </div>
+    <div class="sesgo-box">
+      <div class="sesgo-head">Sesgo de causalidad — Por qué "influye", "afecta" y "mejora" son errores metodológicos</div>
+      <div class="sesgo-body">Según Sampieri (2014) y Pineda et al. (2008), preguntar <em>"¿cómo influye X en Y?"</em> presupone que X ya produce un efecto sobre Y <strong>antes de investigar</strong>. La pregunta introduce la conclusión dentro de sí misma: eso es un sesgo de causalidad.<br><br>Lo mismo ocurre con: <em>afecta · causa · mejora · deteriora · produce · determina · perjudica</em>.<br>La reformulación correcta indaga la <strong>relación</strong> o describe el fenómeno sin asumir dirección ni intensidad del efecto.</div>
+    </div>
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin:16px 0 8px;">Análisis comparativo — 10 errores frecuentes y correcciones</p>
+    <div class="tabla-wrap">
+      <table class="cmp">
+        <thead><tr><th>#</th><th>Formulación incorrecta</th><th>Formulación correcta</th><th>Error identificado</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="td-err">¿Los enfermeros se lavan las manos?</td><td class="td-ok">¿Cuál es el grado de adherencia al protocolo de higiene de manos en el personal de enfermería del servicio de cirugía del Hospital X durante el 2° semestre de 2025?</td><td>Respuesta Sí/No; variable no operacionalizada</td></tr>
+          <tr><td>2</td><td class="td-err">¿El estrés causa errores en la medicación?</td><td class="td-ok">¿Qué relación existe entre el nivel de estrés laboral y la frecuencia de eventos adversos en la administración de fármacos en enfermeros de UTI del Hospital Y durante 2025?</td><td>Sesgo de causalidad</td></tr>
+          <tr><td>3</td><td class="td-err">¿Es buena la atención en la guardia?</td><td class="td-ok">¿Cuál es el grado de satisfacción de los usuarios respecto a la atención de enfermería en el servicio de emergencias del Hospital Z durante el 1° semestre de 2025?</td><td>Adjetivo subjetivo; respuesta dicotómica</td></tr>
+          <tr><td>4</td><td class="td-err">El burnout en enfermeros de noche.</td><td class="td-ok">¿Cuál es la prevalencia del Síndrome de Burnout en enfermeros del turno nocturno del Hospital Público de Morón durante el año 2025?</td><td>Enunciado, no pregunta; sin dimensión temporal</td></tr>
+          <tr><td>5</td><td class="td-err">¿Cómo influye la capacitación en bioseguridad en los accidentes?</td><td class="td-ok">¿Qué relación existe entre la capacitación en bioseguridad y la tasa de accidentes punzocortantes en enfermeros del Hospital X durante 2025?</td><td>Sesgo causalidad; sin unidad de análisis ni tiempo</td></tr>
+          <tr><td>6</td><td class="td-err">¿Por qué los médicos no se lavan las manos?</td><td class="td-ok">¿Cuáles son las barreras percibidas por el personal de salud para la adherencia al lavado de manos en cirugía del Hospital Z durante 2025?</td><td>Tono acusatorio; asume incumplimiento</td></tr>
+          <tr><td>7</td><td class="td-err">¿Los ancianos están bien atendidos?</td><td class="td-ok">¿Cuál es la frecuencia de úlceras por presión en adultos mayores institucionalizados en residencias geriátricas de CABA durante el 1° semestre de 2025?</td><td>Adjetivo subjetivo + dicotómica + sin espacio-tiempo</td></tr>
+          <tr><td>8</td><td class="td-err">¿Saben los pacientes sobre su diabetes?</td><td class="td-ok">¿Cuál es el nivel de conocimiento sobre autocuidado del pie diabético en adultos con DM tipo 2 del CS N°5 de Morón durante 2025?</td><td>Variable imprecisa; sin delimitación espacio-temporal</td></tr>
+          <tr><td>9</td><td class="td-err">¿De qué manera mejora la intervención educativa el autocuidado?</td><td class="td-ok">¿Cuál es el nivel de autocuidado en pacientes con pie diabético que asisten al CS N°2 de Morón durante 2025?</td><td>Sesgo: "mejora" presupone resultado positivo</td></tr>
+          <tr><td>10</td><td class="td-err">¿Cómo afecta el turno nocturno al rendimiento del enfermero?</td><td class="td-ok">¿Cuál es el nivel de rendimiento laboral percibido por enfermeros del turno nocturno en el servicio de guardia del Hospital Municipal de Morón durante 2025?</td><td>Sesgo con "afecta"; variable no operacionalizada</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin:22px 0 10px;">12 ejemplos de preguntas bien formuladas (con los 4 componentes)</p>
+    <div class="plist">
+      <div class="p-item"><span class="p-num">Ejemplo 1 · Descriptivo</span>¿Cuál es el nivel de adherencia al tratamiento antihipertensivo en adultos mayores que asisten al CS N°3 de Morón durante el año 2025?<span class="p-note">Variable: adherencia. Unidad: AM. Espacio: CS N°3 Morón. Tiempo: 2025. Sin sesgo.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 2 · Correlacional</span>¿Qué relación existe entre la sobrecarga laboral y la calidad del registro de enfermería en la UTI del Hospital Municipal de Morón durante el 2° semestre de 2025?<span class="p-note">"Qué relación existe" indaga asociación sin presuponer causalidad ni dirección del efecto.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 3 · Prevalencia</span>¿Cuál es la prevalencia del Síndrome de Burnout en enfermeros con turnos rotativos de 12 horas en servicios críticos del Hospital Regional de Morón durante 2025?<span class="p-note">No asume que el burnout exista ni que sea alto. Solo lo mide sin sesgo previo.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 4 · Exploratorio</span>¿Qué conocimientos poseen los estudiantes de enfermería sobre la prevención de úlceras por presión antes de su primera práctica clínica en la Universidad de Morón, 1° semestre 2025?<span class="p-note">Momento de medición claramente definido: "antes de la práctica clínica".</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 5 · Cualitativo fenomenológico</span>¿Cuáles son las percepciones del personal de enfermería sobre la implementación del protocolo de notificación de eventos adversos en el servicio de guardia del Hospital X durante 2025?<span class="p-note">Variable cualitativa (percepciones). Adecuada para diseño fenomenológico o entrevistas.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 6 · Correlacional</span>¿Qué relación existe entre el nivel de formación en cuidados paliativos y la calidad de atención percibida por pacientes oncológicos internados en el Hospital Z durante el 1° semestre de 2025?<span class="p-note">Dos variables operacionalizables. La relación se investiga, no se presupone.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 7 · Descriptivo</span>¿Cuáles son los factores socioeconómicos asociados al abandono de la lactancia materna exclusiva en el 1° trimestre de vida en el CS N°7 de Morón durante 2025?<span class="p-note">"Asociados" describe vínculos sin asumir causa-efecto.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 8 · Frecuencia</span>¿Cuál es la frecuencia de errores en la administración de medicación IV en clínica médica del Hospital Municipal de Morón durante el 2° semestre de 2025?<span class="p-note">No juzga, no presupone causa. Solo describe cuánto ocurre el fenómeno.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 9 · Cualitativo</span>¿Cuáles son las barreras percibidas por cuidadores familiares de adultos mayores con demencia para acceder a servicios de enfermería domiciliaria en el partido de Morón durante 2025?<span class="p-note">No asume cuáles son las barreras: las investiga desde la voz de los cuidadores.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 10 · Satisfacción laboral</span>¿Cuál es el nivel de satisfacción laboral de los enfermeros del primer nivel de atención en centros de salud del partido de Morón durante el año 2025?<span class="p-note">Operacionalizable con escalas validadas (Font Roja). Sin adjetivos valorativos ni sesgos.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 11 · Salud pública / Epidemiológico</span>¿Cuál es la cobertura de vacunación contra COVID-19 en adultos mayores de 65 años en los centros de atención primaria del partido de Morón durante el año 2025?<span class="p-note">Variable: cobertura vacunal. Contexto de salud pública bien delimitado. Sin sesgo causal.</span></div>
+      <div class="p-item"><span class="p-num">Ejemplo 12 · Representaciones sociales</span>¿Cuáles son las representaciones sociales sobre el rol autónomo de enfermería en estudiantes del último año de la Licenciatura en la Universidad de Morón durante 2025?<span class="p-note">Diseño cualitativo. Variable: representaciones sociales. Unidad bien acotada.</span></div>
+    </div>
+    <div class="err-box" style="margin-top:18px;"><strong>Lo que NO debe contener una pregunta de investigación:</strong> Respuestas Sí/No · Juicios de valor · Términos vagos ("adecuado", "bueno", "mucho") · Verbos con sesgo: <em>influye, afecta, causa, mejora, deteriora</em> · Soluciones disfrazadas de pregunta · Enunciados sin signo de interrogación</div>
+  </div>
+</section>
+
+<!-- 6 VARIABLES -->
+<section class="wrap" id="variables">
+  <div class="ey">Paso 6</div><div class="st">Variables de Investigación</div>
+  <div class="sd">Una variable es cualquier característica de la realidad que puede asumir distintos valores y ser medida u observada (Arias, 2012). En estudios correlacionales o explicativos se distinguen la Variable Independiente y la Variable Dependiente.</div>
+  <div class="var-section">
+    <div class="var-col">
+      <div class="var-header vi"><div class="vh-tag">VI · Variable Independiente</div><div class="vh-title">La causa o factor de estudio</div><div class="vh-def">La variable que el investigador observa o considera como posible factor antecedente. Es la que "precede" o "explica" a la otra variable.</div></div>
+      <ul class="var-list vi">
+        <li><div class="vn">1</div><div class="vtxt">Nivel de capacitación en bioseguridad<span class="vcat">Seguridad del trabajador de salud</span></div></li>
+        <li><div class="vn">2</div><div class="vtxt">Carga horaria semanal del enfermero<span class="vcat">Condiciones laborales</span></div></li>
+        <li><div class="vn">3</div><div class="vtxt">Pluriempleo del personal de enfermería<span class="vcat">Salud laboral</span></div></li>
+        <li><div class="vn">4</div><div class="vtxt">Nivel de formación académica del enfermero<span class="vcat">Educación en salud</span></div></li>
+        <li><div class="vn">5</div><div class="vtxt">Programa de educación para la salud recibido<span class="vcat">Promoción de la salud</span></div></li>
+        <li><div class="vn">6</div><div class="vtxt">Antigüedad laboral en el servicio<span class="vcat">Recursos humanos en salud</span></div></li>
+        <li><div class="vn">7</div><div class="vtxt">Modalidad de turno (nocturno / diurno / rotativo)<span class="vcat">Organización del trabajo</span></div></li>
+        <li><div class="vn">8</div><div class="vtxt">Cobertura de salud del paciente (obra social / sin cobertura)<span class="vcat">Acceso al sistema de salud</span></div></li>
+        <li><div class="vn">9</div><div class="vtxt">Nivel socioeconómico del grupo familiar<span class="vcat">Determinantes sociales de la salud</span></div></li>
+        <li><div class="vn">10</div><div class="vtxt">Uso de protocolo estandarizado de triaje<span class="vcat">Gestión de urgencias</span></div></li>
+      </ul>
+    </div>
+    <div class="var-col">
+      <div class="var-header vd"><div class="vh-tag">VD · Variable Dependiente</div><div class="vh-title">El efecto o fenómeno medido</div><div class="vh-def">La variable que se mide o evalúa como resultado. Es lo que se quiere describir, cuantificar o explicar en el estudio.</div></div>
+      <ul class="var-list vd">
+        <li><div class="vn">1</div><div class="vtxt">Tasa de accidentes punzocortantes<span class="vcat">Seguridad del trabajador de salud</span></div></li>
+        <li><div class="vn">2</div><div class="vtxt">Nivel de estrés laboral percibido<span class="vcat">Salud mental ocupacional</span></div></li>
+        <li><div class="vn">3</div><div class="vtxt">Calidad del registro de enfermería<span class="vcat">Calidad asistencial</span></div></li>
+        <li><div class="vn">4</div><div class="vtxt">Nivel de adherencia terapéutica del paciente<span class="vcat">Gestión de enfermedades crónicas</span></div></li>
+        <li><div class="vn">5</div><div class="vtxt">Prevalencia de úlceras por presión<span class="vcat">Seguridad del paciente</span></div></li>
+        <li><div class="vn">6</div><div class="vtxt">Grado de satisfacción del usuario<span class="vcat">Calidad de atención</span></div></li>
+        <li><div class="vn">7</div><div class="vtxt">Nivel de conocimiento sobre autocuidado<span class="vcat">Educación para la salud</span></div></li>
+        <li><div class="vn">8</div><div class="vtxt">Frecuencia del Síndrome de Burnout<span class="vcat">Salud laboral del profesional</span></div></li>
+        <li><div class="vn">9</div><div class="vtxt">Tiempo de espera en el servicio de urgencias<span class="vcat">Gestión y organización sanitaria</span></div></li>
+        <li><div class="vn">10</div><div class="vtxt">Nivel de lactancia materna exclusiva al 3° mes<span class="vcat">Salud materno-infantil</span></div></li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:20px;">
+    <div class="def-box"><strong>Ejemplo con VI + VD:</strong> ¿Qué relación existe entre la <u>modalidad de turno</u> (VI) y el <u>nivel de estrés laboral percibido</u> (VD) en enfermeros del servicio de clínica médica del Hospital Municipal de Morón durante 2025?</div>
+    <div class="alert-box" style="margin-top:12px;"><strong>Importante: VI y VD solo existen en estudios correlacionales o explicativos</strong>En estudios descriptivos puros se habla de <em>variables de estudio</em>. La distinción VI/VD aplica cuando se investiga una posible relación entre dos o más fenómenos.</div>
+  </div>
+</section>
+
+<!-- 7 OBJETIVOS -->
+<section class="wrap" id="objetivos">
+  <div class="ey">Paso 7</div><div class="st">Objetivos: General y Específicos</div>
+  <div class="sd">Los objetivos son el "para qué" de la investigación. Deben ser medibles, observables y expresados en infinitivo. No son actividades: son logros de conocimiento (Sampieri, 2014).</div>
+  <div class="card">
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin-bottom:10px;">Transformación: pregunta en objetivo general</p>
+    <div class="transf">
+      <div class="transf-item"><div class="t-lbl">Pregunta</div><div class="t-txt">¿Cuál es el nivel de adherencia al tratamiento antihipertensivo en adultos mayores del CS N°3 de Morón durante 2025?</div></div>
+      <div class="t-arr">→</div>
+      <div class="transf-item"><div class="t-lbl">Objetivo General</div><div class="t-txt">Determinar el nivel de adherencia al tratamiento antihipertensivo en adultos mayores que asisten al CS N°3 de Morón durante el año 2025.</div></div>
+    </div>
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin:18px 0 8px;">Verbos de alta jerarquía — Objetivo General</p>
+    <div class="chips"><span class="chip chip-r">Analizar</span><span class="chip chip-r">Determinar</span><span class="chip chip-r">Evaluar</span><span class="chip chip-r">Comparar</span><span class="chip chip-r">Establecer</span><span class="chip chip-r">Caracterizar</span><span class="chip chip-r">Examinar</span><span class="chip chip-r">Estimar</span><span class="chip chip-r">Conocer</span></div>
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin:18px 0 8px;">Estructura de los Objetivos Específicos</p>
+    <ul class="nlist">
+      <li data-n="OE1"><span><strong>Diagnóstico / Descripción:</strong> Identificar el perfil sociodemográfico o el estado inicial de la población.</span></li>
+      <li data-n="OE2"><span><strong>Análisis de variables:</strong> Describir o analizar el comportamiento de las variables principales.</span></li>
+      <li data-n="OE3"><span><strong>Relación / Evaluación:</strong> Relacionar las variables entre sí o evaluar el fenómeno central.</span></li>
+    </ul>
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin:14px 0 8px;">Verbos recomendados — Objetivos Específicos</p>
+    <div class="chips"><span class="chip chip-s">Identificar</span><span class="chip chip-s">Describir</span><span class="chip chip-s">Clasificar</span><span class="chip chip-s">Relacionar</span><span class="chip chip-s">Calcular</span><span class="chip chip-s">Comparar</span><span class="chip chip-s">Enumerar</span><span class="chip chip-s">Medir</span><span class="chip chip-s">Valorar</span><span class="chip chip-s">Señalar</span></div>
+    <p style="font-size:13px;font-weight:600;color:var(--mu);margin:18px 0 8px;">Ejemplo completo — Pregunta → OG → OE</p>
+    <div class="def-box">Pregunta: ¿Cuál es el nivel de adherencia al tratamiento antihipertensivo en adultos mayores del CS N°3 de Morón, 2025?</div>
+    <div class="ok-box"><strong>OG:</strong> Determinar el nivel de adherencia al tratamiento antihipertensivo en adultos mayores que asisten al CS N°3 de Morón durante el año 2025.</div>
+    <div class="ok-box"><strong>OE1:</strong> Caracterizar sociodemográficamente a los adultos mayores con HTA atendidos en el CS N°3 (edad, sexo, nivel educativo, obra social).</div>
+    <div class="ok-box"><strong>OE2:</strong> Identificar el nivel de adherencia terapéutica según la escala de Morisky-Green.</div>
+    <div class="ok-box"><strong>OE3:</strong> Relacionar el nivel de adherencia con las variables sociodemográficas de la población estudiada.</div>
+    <div class="par" style="margin-top:16px;">
+      <div class="p-err"><span class="p-lbl">✗ Error — actividad</span>"Realizar 50 encuestas a los adultos mayores del CS"<div class="p-exp">Actividad metodológica, no un logro de conocimiento.</div></div>
+      <div class="p-ok"><span class="p-lbl">✓ Correcto — logro intelectual</span>"Describir los factores asociados a la baja adherencia en la población estudiada"<div class="p-exp">Expresa qué se conocerá al finalizar, no qué se hará para recolectar datos.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 EJES -->
+<section class="wrap" id="ejes">
+  <div class="ey">Paso 8</div><div class="st">Ejes Prioritarios de Investigación</div>
+  <div class="sd">Los proyectos deben inscribirse en un eje temático que garantice su relevancia social y disciplinar. Se priorizan los ejes de salud pública, pero la investigación en enfermería abarca también áreas clínicas, educativas y de gestión.</div>
+  <div class="ejes-grid">
+    <div class="eje-card">
+      <div class="eje-top"><div class="eje-letter" style="background:linear-gradient(135deg,#c06080,#e088a8);">A</div><div class="eje-title">Salud Pública y Epidemiología</div><div class="eje-sub">Fenómenos de salud poblacional. Foco en prevención, vigilancia y determinantes sociales.</div></div>
+      <div class="eje-topics">
+        <div class="eje-topic">Cobertura vacunal en niños y adultos mayores</div>
+        <div class="eje-topic">Prevalencia de enfermedades crónicas no transmisibles (HTA, diabetes)</div>
+        <div class="eje-topic">Factores de riesgo cardiovascular en población urbana</div>
+        <div class="eje-topic">Acceso a servicios de salud en contextos de vulnerabilidad</div>
+        <div class="eje-topic">Mortalidad materno-infantil y sus determinantes sociales</div>
+      </div>
+    </div>
+    <div class="eje-card">
+      <div class="eje-top"><div class="eje-letter" style="background:linear-gradient(135deg,#5a7a5a,#7aaa7a);">B</div><div class="eje-title">Promoción de la Salud y Prevención</div><div class="eje-sub">Intervenciones orientadas al primer nivel de atención y educación sanitaria comunitaria.</div></div>
+      <div class="eje-topics">
+        <div class="eje-topic">Adherencia al tratamiento de enfermedades crónicas</div>
+        <div class="eje-topic">Lactancia materna: barreras y factores facilitadores</div>
+        <div class="eje-topic">Autocuidado en pacientes con pie diabético</div>
+        <div class="eje-topic">Hábitos alimentarios y actividad física en adolescentes</div>
+        <div class="eje-topic">Consumo problemático de alcohol y tabaco en jóvenes</div>
+      </div>
+    </div>
+    <div class="eje-card">
+      <div class="eje-top"><div class="eje-letter" style="background:linear-gradient(135deg,#8b3a5a,#b05880);">C</div><div class="eje-title">Calidad y Seguridad del Paciente</div><div class="eje-sub">Reducción de riesgos asistenciales y mejora de la excelencia en el cuidado.</div></div>
+      <div class="eje-topics">
+        <div class="eje-topic">Frecuencia de úlceras por presión en internación</div>
+        <div class="eje-topic">Errores en la administración de medicación</div>
+        <div class="eje-topic">Adherencia a protocolos de higiene de manos</div>
+        <div class="eje-topic">Notificación de eventos adversos por el personal</div>
+        <div class="eje-topic">Caídas accidentales en pacientes hospitalizados</div>
+      </div>
+    </div>
+    <div class="eje-card">
+      <div class="eje-top"><div class="eje-letter" style="background:linear-gradient(135deg,#9a7a3a,#c0a060);">D</div><div class="eje-title">Salud Mental y Bienestar Laboral</div><div class="eje-sub">Condiciones del trabajo en enfermería y su impacto en la salud mental ocupacional.</div></div>
+      <div class="eje-topics">
+        <div class="eje-topic">Síndrome de Burnout en servicios críticos</div>
+        <div class="eje-topic">Estrés laboral en turnos nocturnos y rotativos</div>
+        <div class="eje-topic">Pluriempleo y fatiga crónica en enfermeros</div>
+        <div class="eje-topic">Clima organizacional y satisfacción laboral</div>
+        <div class="eje-topic">Violencia laboral hacia el personal de enfermería</div>
+      </div>
+    </div>
+    <div class="eje-card">
+      <div class="eje-top"><div class="eje-letter" style="background:linear-gradient(135deg,#5a3a7a,#7a5aaa);">E</div><div class="eje-title">Educación y Formación en Enfermería</div><div class="eje-sub">Procesos pedagógicos, competencias profesionales y formación de grado y posgrado.</div></div>
+      <div class="eje-topics">
+        <div class="eje-topic">Conocimientos de estudiantes antes de la práctica clínica</div>
+        <div class="eje-topic">Impacto de la simulación clínica de alta fidelidad</div>
+        <div class="eje-topic">Estrategias pedagógicas en entornos virtuales</div>
+        <div class="eje-topic">Competencias en urgencias y emergencias al egreso</div>
+        <div class="eje-topic">Representaciones sociales del rol autónomo de enfermería</div>
+      </div>
+    </div>
+    <div class="eje-card">
+      <div class="eje-top"><div class="eje-letter" style="background:linear-gradient(135deg,#3a6a7a,#5a9aaa);">F</div><div class="eje-title">Poblaciones Vulnerables y Cuidados Especiales</div><div class="eje-sub">Grupos con necesidades específicas: adultos mayores, niños, oncológicos, paliativos.</div></div>
+      <div class="eje-topics">
+        <div class="eje-topic">Riesgo de caídas en adultos mayores institucionalizados</div>
+        <div class="eje-topic">Cuidado humanizado en pacientes oncológicos</div>
+        <div class="eje-topic">Necesidades de cuidado paliativo domiciliario</div>
+        <div class="eje-topic">Acompañamiento familiar en pediatría quirúrgica</div>
+        <div class="eje-topic">Salud sexual y reproductiva en contextos de vulnerabilidad</div>
+      </div>
+    </div>
+    <div class="eje-card">
+      <div class="eje-top"><div class="eje-letter" style="background:linear-gradient(135deg,#6a5a3a,#9a8a60);">G</div><div class="eje-title">Gestión y Liderazgo en Enfermería</div><div class="eje-sub">Administración de servicios, gestión del talento humano y mejora institucional.</div></div>
+      <div class="eje-topics">
+        <div class="eje-topic">Liderazgo del jefe de servicio y clima laboral</div>
+        <div class="eje-topic">Gestión por procesos en unidades de internación</div>
+        <div class="eje-topic">Carga de trabajo de enfermería y dotación de personal</div>
+        <div class="eje-topic">Calidad del registro y documentación clínica</div>
+        <div class="eje-topic">Rotación y retención del personal de enfermería</div>
+      </div>
+    </div>
+    <div class="eje-card">
+      <div class="eje-top"><div class="eje-letter" style="background:linear-gradient(135deg,#4a7a5a,#6aaa7a);">H</div><div class="eje-title">Salud Materno-Infantil y Perinatal</div><div class="eje-sub">Cuidados durante el embarazo, parto, puerperio y desarrollo en los primeros años.</div></div>
+      <div class="eje-topics">
+        <div class="eje-topic">Control prenatal: adherencia y barreras de acceso</div>
+        <div class="eje-topic">Lactancia materna y acompañamiento en puerperio</div>
+        <div class="eje-topic">Conocimientos sobre estimulación temprana en madres</div>
+        <div class="eje-topic">Parto humanizado: percepciones del equipo de salud</div>
+        <div class="eje-topic">Detección de depresión posparto en el primer nivel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 CHECKLIST -->
+<section class="wrap" id="checklist">
+  <div class="ey">Revisión final</div><div class="st">Checklist de Errores Frecuentes</div>
+  <div class="sd">Antes de entregar tu proyecto, verificá que no hayas cometido ninguno de estos errores metodológicos.</div>
+  <div class="chk-grid">
+    <div class="chk-card"><div class="chk-title">Objetivos = actividades</div><div class="chk-desc">Los objetivos expresan logros de conocimiento, no acciones de campo. "Realizar encuestas" es una actividad, no un objetivo.</div></div>
+    <div class="chk-card"><div class="chk-title">Sesgo de causalidad</div><div class="chk-desc">"Influye", "afecta", "causa", "mejora" presuponen un resultado antes de investigar. Usar "¿qué relación existe?" o "¿cuál es el nivel de…?"</div></div>
+    <div class="chk-card"><div class="chk-title">Pregunta cerrada (Sí/No)</div><div class="chk-desc">La pregunta debe invitar al análisis. Evitar: "¿Los enfermeros aplican el protocolo?" — solo admite sí o no.</div></div>
+    <div class="chk-card"><div class="chk-title">Ambigüedad terminológica</div><div class="chk-desc">Evitar "adecuado", "bueno", "mucho". Toda variable debe poder operacionalizarse con un instrumento o criterio concreto.</div></div>
+    <div class="chk-card"><div class="chk-title">Sin delimitación temporal</div><div class="chk-desc">Toda investigación necesita acotarse en el tiempo. Siempre especificar: ¿en qué año o período?</div></div>
+    <div class="chk-card"><div class="chk-title">Objetivo general desconectado</div><div class="chk-desc">El OG debe derivar directamente de la pregunta. Si no coinciden en variable, población, espacio y tiempo, hay incoherencia interna.</div></div>
+    <div class="chk-card"><div class="chk-title">Introducción en primera persona</div><div class="chk-desc">La introducción se redacta en tercera persona o impersonal. Evitar "vamos a investigar" o "creemos que es importante".</div></div>
+    <div class="chk-card"><div class="chk-title">Justificación vaga</div><div class="chk-desc">La justificación necesita datos y normativas que respalden la urgencia. No alcanza con "es un tema importante".</div></div>
+    <div class="chk-card"><div class="chk-title">Confundir intro y justificación</div><div class="chk-desc">La introducción presenta el problema. La justificación argumenta por qué merece investigarse. Son secciones distintas.</div></div>
+  </div>
+</section>
+
+<!-- 10 PRÁCTICA -->
+<section class="prac-wrap" id="practica">
+  <div class="ey">Zona de práctica</div><div class="st">¿Cuánto aprendiste?</div>
+  <div class="sd">Respondé las preguntas y recibí retroalimentación inmediata basada en Sampieri, Arias y Pineda.</div>
+  <div class="score-inner"><div class="score-txt">Respuestas correctas</div><div class="score-val" id="score">0 / 10</div><button class="reset-btn" onclick="resetQuiz()">Reiniciar práctica</button></div>
+
+  <div class="quiz-card" data-answer="B"><div class="quiz-n">Pregunta 1 · Tema e Idea</div><div class="quiz-q">¿Cuál representa una idea de investigación correctamente delimitada?</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>La salud de los niños.</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>Nivel de fatiga percibida en enfermeros del turno nocturno de una clínica privada de Morón, 2025.</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>El estrés en la enfermería.</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>Problemas laborales del personal de salud.</div></div><div class="feedback fb-ok">Correcto. B delimita los cuatro componentes: quiénes (enfermeros turno nocturno), qué (fatiga percibida), dónde (clínica privada de Morón), cuándo (2025).</div><div class="feedback fb-err">Incorrecto. La respuesta es B. Una idea requiere: población, variable, espacio y tiempo. Solo B cumple los cuatro.</div></div>
+
+  <div class="quiz-card" data-answer="C"><div class="quiz-n">Pregunta 2 · Sesgo de causalidad</div><div class="quiz-q">¿Por qué "¿Cómo influye el pluriempleo en la calidad del cuidado?" tiene un error metodológico?</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>Porque "pluriempleo" no es una variable de enfermería.</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>Porque no especifica el hospital.</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>Porque "influye" presupone causalidad antes de investigar, y falta delimitación espacio-temporal.</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>Porque la calidad del cuidado no puede medirse.</div></div><div class="feedback fb-ok">Correcto. "Influye" introduce sesgo de causalidad: asume un efecto antes de demostrarlo. Además faltan espacio y tiempo. Reformulación: "¿Qué relación existe entre el pluriempleo y la calidad del cuidado de enfermería en el Hospital X durante 2025?"</div><div class="feedback fb-err">Incorrecto. La respuesta es C. El verbo "influye" presupone un efecto causal sin haberlo demostrado (Sampieri, 2014). Además falta contexto y tiempo. La reformulación usa "¿qué relación existe?"</div></div>
+
+  <div class="quiz-card" data-answer="D"><div class="quiz-n">Pregunta 3 · Variable Independiente</div><div class="quiz-q">En la pregunta: "¿Qué relación existe entre la carga horaria semanal y el nivel de estrés laboral en enfermeros de UTI del Hospital X durante 2025?" — ¿cuál es la Variable Independiente?</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>El nivel de estrés laboral.</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>Los enfermeros de UTI.</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>El Hospital X.</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>La carga horaria semanal.</div></div><div class="feedback fb-ok">Correcto. La VI es la carga horaria: el factor antecedente estudiado. La VD es el estrés laboral: el efecto medido. Los enfermeros de UTI son la unidad de análisis.</div><div class="feedback fb-err">Incorrecto. La respuesta es D. La VI es el factor observado como posible antecedente: la carga horaria. El estrés laboral es la VD. No confundir con la unidad de análisis (enfermeros de UTI).</div></div>
+
+  <div class="quiz-card" data-answer="A"><div class="quiz-n">Pregunta 4 · Pregunta bien formulada</div><div class="quiz-q">¿Cuál es una pregunta de investigación correctamente formulada?</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>¿Cuál es la prevalencia del Síndrome de Burnout en enfermeros del turno nocturno del Hospital Público de Morón durante 2025?</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>El burnout en enfermeros de noche.</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>¿Por qué los enfermeros no se cuidan?</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>¿Es buena la atención en la guardia?</div></div><div class="feedback fb-ok">Correcto. A tiene los 4 componentes: variable (Burnout), unidad (enfermeros turno nocturno), espacio (Hospital Público de Morón), tiempo (2025). Sin sesgo causal.</div><div class="feedback fb-err">Incorrecto. La respuesta es A. B es enunciado sin signo de pregunta. C presupone que no se cuidan. D usa "buena" (adjetivo subjetivo). Solo A tiene los 4 componentes.</div></div>
+
+  <div class="quiz-card" data-answer="B"><div class="quiz-n">Pregunta 5 · Error metodológico</div><div class="quiz-q">El error principal de "¿El estrés causa errores en la medicación?" es…</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>No especifica el servicio hospitalario.</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>Presupone causalidad antes de investigar (sesgo).</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>Usa adjetivo subjetivo.</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>Es un enunciado, no una pregunta.</div></div><div class="feedback fb-ok">Correcto. "Causa" presupone una relación causal antes de haberla investigado: sesgo de causalidad (Sampieri, 2014). La reformulación: "¿Qué relación existe entre el nivel de estrés laboral y la frecuencia de errores en la administración de medicación en enfermeros de UTI del Hospital Y durante 2025?"</div><div class="feedback fb-err">Incorrecto. La respuesta es B. "Causa" introduce la conclusión antes de demostrarla. Eso es sesgo de causalidad: no se puede asumir que X causa Y antes de investigarlo.</div></div>
+
+  <div class="quiz-card" data-answer="C"><div class="quiz-n">Pregunta 6 · Objetivo General</div><div class="quiz-q">¿Cuál es un objetivo general correctamente redactado?</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>Hacer una encuesta a los enfermeros sobre el estrés laboral.</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>Ver qué pasa con los turnos nocturnos en el hospital.</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>Determinar la relación entre la sobrecarga laboral y la calidad del registro de enfermería en la UTI del Hospital Municipal de Morón durante el 2° semestre de 2025.</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>Investigar si los pacientes están conformes con la atención de enfermería.</div></div><div class="feedback fb-ok">Correcto. C está en infinitivo (Determinar), incluye variable principal, unidad de análisis y contexto espacio-temporal completo. No confunde objetivo con actividad.</div><div class="feedback fb-err">Incorrecto. La respuesta es C. A y B son actividades. D usa "conformes" (subjetivo). Solo C es un objetivo medible, en infinitivo, con variable, contexto y tiempo.</div></div>
+
+  <div class="quiz-card" data-answer="D"><div class="quiz-n">Pregunta 7 · Justificación</div><div class="quiz-q">¿Cuál es una justificación correctamente desarrollada según Sampieri (2014)?</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>"El tema es importante porque la enfermería es fundamental en el sistema de salud."</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>"Queremos investigar esto porque nos interesa mucho el bienestar de los enfermeros."</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>"Este estudio es relevante porque nadie lo investigó antes."</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>"Los resultados permitirán orientar políticas de prevención del desgaste laboral en el Hospital Municipal, beneficiando directamente al personal e indirectamente a los pacientes que reciben sus cuidados."</div></div><div class="feedback fb-ok">Correcto. D especifica quiénes se beneficiarán (personal, pacientes), qué aportará el estudio (orientar políticas) y en qué institución. Responde relevancia social e implicaciones prácticas (Sampieri, 2014; Arias, 2012).</div><div class="feedback fb-err">Incorrecto. La respuesta es D. A, B y C son vagos: no especifican quiénes se benefician ni qué conocimiento se generará. Una justificación necesita argumentos concretos respaldados en datos o normativas.</div></div>
+
+  <div class="quiz-card" data-answer="A"><div class="quiz-n">Pregunta 8 · Planteamiento del problema</div><div class="quiz-q">Según Sampieri (2014), ¿cuántos elementos tiene un planteamiento completo del problema?</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>Cinco: objetivos, preguntas, justificación, viabilidad y evaluación de deficiencias en el conocimiento.</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>Tres: objetivos, preguntas y justificación.</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>Cuatro: objetivos, preguntas, justificación y viabilidad.</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>Dos: objetivos y preguntas.</div></div><div class="feedback fb-ok">Correcto. Cinco elementos: (1) Objetivos, (2) Preguntas, (3) Justificación, (4) Viabilidad y (5) Evaluación de deficiencias en el conocimiento. El quinto es el más olvidado.</div><div class="feedback fb-err">Incorrecto. La respuesta es A. El elemento más omitido es el quinto: la evaluación de deficiencias en el conocimiento existente (estado del arte).</div></div>
+
+  <div class="quiz-card" data-answer="B"><div class="quiz-n">Pregunta 9 · Reformulación sin sesgo</div><div class="quiz-q">¿Cuál es la reformulación correcta de "¿Cómo afecta el pluriempleo a la calidad del cuidado?"</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>¿Por qué el pluriempleo daña la calidad del cuidado de enfermería?</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>¿Qué relación existe entre el pluriempleo y la calidad percibida del cuidado de enfermería en el Hospital X durante el año 2025?</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>¿Afecta el pluriempleo negativamente a los enfermeros del Hospital X?</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>¿Trabajan bien los enfermeros que tienen pluriempleo?</div></div><div class="feedback fb-ok">Correcto. B elimina el sesgo ("afecta"), operacionaliza la variable (calidad percibida), agrega contexto espacio-temporal y usa "relación existe" sin presuponer dirección causal.</div><div class="feedback fb-err">Incorrecto. La respuesta es B. A y C siguen asumiendo efecto negativo. D usa "bien" (subjetivo). Solo B reformula sin sesgo, con espacio y tiempo definidos.</div></div>
+
+  <div class="quiz-card" data-answer="C"><div class="quiz-n">Pregunta 10 · Introducción académica</div><div class="quiz-q">¿Cuál corresponde a una introducción académica correctamente redactada?</div><div class="quiz-opts"><div class="opt" data-val="A" onclick="answer(this)"><div class="ol">A</div>"En este trabajo vamos a investigar el burnout porque nos parece muy importante y creemos que es muy relevante hoy en día."</div><div class="opt" data-val="B" onclick="answer(this)"><div class="ol">B</div>"El burnout es un problema grave. Queremos saber cuántos enfermeros lo tienen en nuestro hospital."</div><div class="opt" data-val="C" onclick="answer(this)"><div class="ol">C</div>"El Síndrome de Burnout afecta al 30–40% del personal de enfermería a nivel mundial (OMS, 2019). En Argentina, su prevalencia en servicios críticos supera el 25% (INDEC, 2022). En el Hospital Municipal de Morón no se dispone de datos locales, lo que representa un vacío de conocimiento. El presente estudio se propone estimar su prevalencia en el turno nocturno de dicha institución durante 2025."</div><div class="opt" data-val="D" onclick="answer(this)"><div class="ol">D</div>"Siempre hubo burnout en enfermería. Es un tema que debe investigarse urgentemente en todos los hospitales del país."</div></div><div class="feedback fb-ok">Correcto. C contiene: datos epidemiológicos (OMS, INDEC), descripción del vacío de conocimiento local y propósito del estudio. Usa tercera persona, estilo académico y referencias bibliográficas. Sin adjetivos valorativos.</div><div class="feedback fb-err">Incorrecto. La respuesta es C. A y B usan primera persona y lenguaje coloquial. D generaliza sin fundamento. Solo C tiene: contexto epidemiológico, vacío de conocimiento y propósito del estudio correctamente expresados.</div></div>
+
+</section>
+
+<div class="biblio">
+  <div class="biblio-in">
+    <div class="biblio-title">Bibliografía · Normas APA</div>
+    <ul class="bib-list">
+      <li>Arias, F. (2012). <em>El Proyecto de Investigación. Introducción a la metodología científica</em> (6.ª ed.). Episteme.</li>
+      <li>Bassi, J. (2017). <em>La escritura académica: 30 errores habituales.</em></li>
+      <li>Hernández Sampieri, R., Fernández Collado, C., y Baptista Lucio, P. (2014). <em>Metodología de la investigación</em> (6.ª ed.). McGraw-Hill.</li>
+      <li>Pineda, E. B., Alvarado, E. L., y Canales, F. H. (2008). <em>Metodología de la investigación</em>. Organización Panamericana de la Salud (OPS).</li>
+    </ul>
+  </div>
+</div>
+<footer><strong>Cátedra de Metodología de la Investigación en Enfermería · 2026</strong><br>Prof. Vanesa Ferreyra · Material de referencia para estudiantes · Universidad de Morón<br><span style="color:#555;margin-top:4px;display:block;">Actualizado: julio 2026</span></footer>
+<script>
+let c=0,a=0;
+function answer(el){
+  const card=el.closest('.quiz-card');
+  if(card.dataset.done)return;
+  card.dataset.done='true';
+  const cv=card.dataset.answer,ch=el.dataset.val;
+  card.querySelectorAll('.opt').forEach(o=>o.style.pointerEvents='none');
+  if(ch===cv){el.classList.add('correct');el.querySelector('.ol').textContent='✓';card.querySelector('.fb-ok').classList.add('show');c++;}
+  else{el.classList.add('wrong');el.querySelector('.ol').textContent='✗';card.querySelectorAll('.opt').forEach(o=>{if(o.dataset.val===cv){o.classList.add('correct');o.querySelector('.ol').textContent='✓';}});card.querySelector('.fb-err').classList.add('show');}
+  a++;document.getElementById('score').textContent=c+' / '+a;
+}
+function resetQuiz(){
+  c=0;a=0;document.getElementById('score').textContent='0 / 10';
+  document.querySelectorAll('.quiz-card').forEach(card=>{
+    delete card.dataset.done;
+    card.querySelectorAll('.opt').forEach(o=>{o.className='opt';o.style.pointerEvents='';o.querySelector('.ol').textContent=o.dataset.val;});
+    card.querySelectorAll('.feedback').forEach(f=>f.classList.remove('show'));
+  });
+}
+</script>
+</body>
+</html>
