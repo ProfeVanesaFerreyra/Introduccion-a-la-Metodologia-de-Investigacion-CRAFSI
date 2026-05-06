@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guía Completa: Objetivos de Investigación | Enfermería</title>
+<meta name="description" content="Guía pedagógica para la formulación correcta de objetivos de investigación en enfermería y ciencias de la salud.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#07090f;color:#dde3f0;overflow-x:hidden}
+:root{--teal:#00c9a7;--blue:#4a90e2;--purple:#a78bfa;--amber:#f59e0b;--card:#0f1623;--card2:#141d2e;--border:#1e2d48;--muted:#6b7fa3}
+
+/* HERO */
+.hero{padding:72px 28px 52px;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#07090f 0%,#0b1530 60%,#07090f 100%)}
+.hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 70% 30%,rgba(0,201,167,0.06),transparent),
+             radial-gradient(ellipse 60% 40% at 25% 70%,rgba(74,144,226,0.05),transparent);
+  animation:glow 9s ease-in-out infinite alternate;pointer-events:none}
+@keyframes glow{from{opacity:1}to{opacity:0.5}}
+.badge-hero{display:inline-block;background:rgba(0,201,167,0.12);color:var(--teal);
+  border:1px solid rgba(0,201,167,0.28);border-radius:20px;
+  padding:5px 18px;font-size:11px;font-weight:600;letter-spacing:1.8px;
+  text-transform:uppercase;margin-bottom:18px;position:relative}
+.hero h1{font-family:'Sora',sans-serif;font-size:clamp(28px,5.5vw,54px);font-weight:700;
+  line-height:1.12;margin-bottom:14px;position:relative;
+  background:linear-gradient(120deg,#fff 25%,var(--teal) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{color:var(--muted);font-size:15px;max-width:560px;margin:0 auto 32px;position:relative;line-height:1.7}
+.stats{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;position:relative;margin-top:8px}
+.stat{text-align:center}
+.stat-n{font-family:'Sora',sans-serif;font-size:30px;font-weight:700;color:var(--teal)}
+.stat-l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+
+/* NAV */
+nav{display:flex;gap:8px;padding:14px 24px;background:#0b1120;border-bottom:1px solid var(--border);
+  overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;position:sticky;top:0;z-index:100}
+nav::-webkit-scrollbar{display:none}
+.nb{background:transparent;border:1px solid var(--border);color:var(--muted);
+  padding:8px 16px;border-radius:20px;font-size:13px;cursor:pointer;white-space:nowrap;
+  transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.nb:hover,.nb.active{background:rgba(0,201,167,0.12);color:var(--teal);border-color:rgba(0,201,167,0.4)}
+
+/* PROGRESO */
+.prog-wrap{background:#0b1120;padding:0 0 1px}
+.prog-bar{height:3px;background:var(--border);overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--blue));transition:width 0.5s ease}
+
+/* LAYOUT */
+.wrap{max-width:900px;margin:0 auto;padding:40px 24px 100px}
+.sec{display:none;animation:fi 0.35s ease}
+.sec.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.sec-h{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:6px}
+.sec-lead{color:var(--muted);font-size:14px;margin-bottom:28px;line-height:1.7}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:18px}
+.card-t{font-family:'Sora',sans-serif;font-size:15px;font-weight:600;color:#fff;margin-bottom:10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+@media(max-width:580px){.two{grid-template-columns:1fr}}
+.hl{border-left:3px solid var(--teal);padding:10px 14px;margin:10px 0;color:#c5d0e8;
+  font-size:14px;line-height:1.7;background:rgba(0,201,167,0.04);border-radius:0 8px 8px 0}
+.tag{display:inline-block;background:rgba(0,201,167,0.1);color:var(--teal);
+  border-radius:6px;padding:2px 9px;font-size:11px;font-weight:600;margin:2px}
+.divider{height:1px;background:var(--border);margin:24px 0}
+.sub-h{font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:#dde3f0;margin:22px 0 12px}
+
+/* SMART */
+.smart-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0}
+@media(max-width:560px){.smart-grid{grid-template-columns:repeat(3,1fr)}}
+.sc{background:var(--card2);border:1px solid var(--border);border-radius:12px;
+  padding:16px 10px;text-align:center;cursor:pointer;transition:all 0.2s}
+.sc:hover,.sc.open{border-color:var(--teal);background:rgba(0,201,167,0.07)}
+.sl{font-family:'Sora',sans-serif;font-size:26px;font-weight:700;color:var(--teal);line-height:1;margin-bottom:5px}
+.sw{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.sd{display:none;grid-column:1/-1;background:rgba(0,201,167,0.05);
+  border:1px solid rgba(0,201,167,0.18);border-radius:10px;padding:16px}
+.sd.show{display:block}
+.sd-q{font-size:13px;color:var(--teal);font-weight:600;margin-bottom:6px}
+.sd-a{font-size:14px;color:#c5d0e8;line-height:1.65}
+
+/* FORMULA */
+.fbox{background:linear-gradient(135deg,rgba(0,201,167,0.07),rgba(74,144,226,0.07));
+  border:1px solid rgba(0,201,167,0.2);border-radius:14px;padding:22px;margin:18px 0;text-align:center}
+.fp{display:inline-block;background:rgba(255,255,255,0.06);border-radius:8px;
+  padding:6px 13px;margin:4px;color:var(--teal);font-weight:600;font-family:'Sora',sans-serif;font-size:clamp(10px,2vw,13px)}
+.fplus{color:var(--muted);margin:0 4px;font-size:16px}
+.fex{font-size:13px;color:#c5d0e8;line-height:1.7;margin-top:14px;text-align:left;
+  border-top:1px solid var(--border);padding-top:14px}
+
+/* BLOOM */
+.bloom-t{width:100%;border-collapse:collapse;font-size:13px;margin-top:14px}
+.bloom-t th{background:rgba(0,201,167,0.08);color:var(--teal);padding:10px 13px;
+  text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.5px}
+.bloom-t td{padding:12px 13px;border-bottom:1px solid var(--border);color:#c5d0e8;vertical-align:top}
+.bloom-t tr:last-child td{border-bottom:none}
+.bloom-t tr:hover td{background:rgba(255,255,255,0.015)}
+.lbadge{display:inline-block;border-radius:6px;padding:3px 9px;font-size:11px;font-weight:600}
+
+/* EJEMPLOS */
+.filter-row{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.fb{background:var(--card2);border:1px solid var(--border);color:var(--muted);
+  padding:7px 16px;border-radius:20px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.fb:hover,.fb.on{background:rgba(0,201,167,0.12);color:var(--teal);border-color:rgba(0,201,167,0.35)}
+.ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:14px 18px;margin-bottom:10px;position:relative;transition:all 0.2s}
+.ex-card:hover{border-color:rgba(0,201,167,0.3);background:rgba(0,201,167,0.025)}
+.ex-row{display:flex;align-items:flex-start;gap:12px}
+.ex-n{min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;background:rgba(0,201,167,0.13);color:var(--teal);flex-shrink:0;margin-top:1px}
+.ex-v{color:var(--teal);font-weight:700;font-size:14px;margin-right:3px}
+.ex-txt{font-size:14px;color:#c5d0e8;line-height:1.55}
+.ex-badge{position:absolute;top:10px;right:12px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px}
+.badge-g{background:rgba(0,201,167,0.13);color:var(--teal)}
+.badge-e{background:rgba(167,139,250,0.15);color:var(--purple)}
+
+/* CASO */
+.cb{border-left:3px solid var(--blue);border-radius:0 12px 12px 0;
+  padding:16px 18px;margin:12px 0;background:rgba(74,144,226,0.04)}
+.cb-l{font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px}
+.cb-t{font-size:14px;color:#c5d0e8;line-height:1.65}
+.cb-t strong{color:var(--teal);font-weight:600}
+.coherence{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+@media(max-width:580px){.coherence{grid-template-columns:1fr 1fr}}
+.coh-card{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px 12px;text-align:center}
+.coh-icon{font-size:22px;margin-bottom:6px}
+.coh-l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px}
+.coh-v{font-size:13px;color:#dde3f0;font-weight:500;margin-top:4px}
+
+/* ERRORES */
+.error-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
+.error-table th{background:rgba(239,68,68,0.1);color:#f87171;padding:9px 12px;
+  font-size:11px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;text-align:left}
+.error-table td{padding:11px 12px;border-bottom:1px solid var(--border);color:#c5d0e8;vertical-align:top}
+.error-table tr:last-child td{border-bottom:none}
+.cross{color:#f87171;font-weight:700;margin-right:4px}
+.check{color:var(--teal);font-weight:700;margin-right:4px}
+
+/* TIP / WARN */
+.tip{background:rgba(167,139,250,0.07);border:1px solid rgba(167,139,250,0.2);border-radius:12px;padding:18px;margin-top:20px}
+.tip-t{font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.tip-row{display:flex;gap:12px;margin-bottom:9px;align-items:flex-start}
+.tip-i{flex-shrink:0;font-size:16px;margin-top:1px}
+.tip-info strong{display:block;font-size:13px;color:#dde3f0;margin-bottom:2px}
+.tip-info span{font-size:13px;color:var(--muted)}
+.warn{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:18px;margin-top:20px}
+.warn-t{font-size:11px;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+
+/* BIB */
+.bib-item{background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:14px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start}
+.bib-year{min-width:42px;font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:var(--teal)}
+.bib-txt{font-size:13px;color:#c5d0e8;line-height:1.6}
+.bib-txt em{color:var(--muted)}
+
+/* FOOTER */
+footer{text-align:center;padding:36px 24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+footer strong{color:var(--teal)}
+footer p+p{margin-top:6px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge-hero">Enfermería · Investigación Científica</div>
+  <h1>Guía Completa:<br>Objetivos de Investigación</h1>
+  <p class="hero-sub">Guía pedagógica para la formulación correcta de metas de conocimiento, asegurando la coherencia interna del proyecto de investigación y su viabilidad técnica.</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">7</div><div class="stat-l">Módulos</div></div>
+    <div class="stat"><div class="stat-n">40</div><div class="stat-l">Ejemplos</div></div>
+    <div class="stat"><div class="stat-n">SMART</div><div class="stat-l">Criterios</div></div>
+    <div class="stat"><div class="stat-n">Bloom</div><div class="stat-l">Taxonomía</div></div>
+    <div class="stat"><div class="stat-n">9+</div><div class="stat-l">Bibliografía</div></div>
+  </div>
+</div>
+
+<nav>
+  <button class="nb active" onclick="show('s1',this,1)">1. ¿Qué son?</button>
+  <button class="nb" onclick="show('s2',this,2)">2. Criterios SMART</button>
+  <button class="nb" onclick="show('s3',this,3)">3. Taxonomía Bloom</button>
+  <button class="nb" onclick="show('s4',this,4)">4. Banco de ejemplos</button>
+  <button class="nb" onclick="show('s5',this,5)">5. Caso integrador</button>
+  <button class="nb" onclick="show('s6',this,6)">6. Errores frecuentes</button>
+  <button class="nb" onclick="show('s7',this,7)">7. Bibliografía</button>
+</nav>
+<div class="prog-wrap"><div class="prog-bar"><div class="prog-fill" id="prog" style="width:14%"></div></div></div>
+
+<div class="wrap">
+
+<!-- S1 -->
+<div id="s1" class="sec active">
+  <div class="sec-h">¿Qué son los objetivos de investigación?</div>
+  <p class="sec-lead">Según Arias (2012), los objetivos son enunciados que expresan lo que se desea indagar y conocer para responder a un problema planteado. Son el eje vertebrador de todo proyecto de investigación en salud.</p>
+
+  <div class="two">
+    <div class="card">
+      <div class="card-t">🎯 Objetivo General</div>
+      <p style="font-size:14px;color:#c5d0e8;line-height:1.65">Refleja la esencia del problema de investigación. Debe haber correspondencia directa entre el <strong style="color:var(--teal)">título</strong>, la <strong style="color:var(--teal)">pregunta de investigación</strong> y el objetivo general. Es único y abarca el alcance total del estudio.</p>
+    </div>
+    <div class="card">
+      <div class="card-t">📋 Objetivos Específicos</div>
+      <p style="font-size:14px;color:#c5d0e8;line-height:1.65">Representan los pasos intermedios para alcanzar el objetivo general. Se desglosan por <strong style="color:var(--teal)">dimensiones o variables</strong> de estudio. Son múltiples y operativos.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-t">Funciones vitales de los objetivos</div>
+    <div class="hl"><strong style="color:#fff">Orientación:</strong> Indican la dirección de la investigación y guían las etapas subsiguientes (marco teórico, metodología).</div>
+    <div class="hl"><strong style="color:#fff">Delimitación:</strong> Definen el alcance del estudio, evitando que el investigador se disperse en temas secundarios.</div>
+    <div class="hl"><strong style="color:#fff">Evaluación:</strong> Al finalizar el estudio, los resultados se comparan con los objetivos para determinar si la investigación fue exitosa.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-t">¿Por qué son clave en Enfermería?</div>
+    <p style="font-size:14px;color:#c5d0e8;line-height:1.7;margin-bottom:10px">En el ámbito de la salud, los objetivos de investigación permiten generar evidencia científica que sustente la práctica enfermera basada en evidencia (EBE). Sin objetivos claros, no es posible diseñar instrumentos válidos, elegir una metodología apropiada ni interpretar los resultados con rigor.</p>
+    <div class="hl">La coherencia entre <strong style="color:#fff">problema → pregunta → objetivo</strong> es el primer criterio que evalúan los comités de ética e investigación al aprobar un protocolo.</div>
+  </div>
+
+  <div class="warn">
+    <div class="warn-t">⚠️ Regla fundamental — Los objetivos NO son actividades</div>
+    <div class="tip-row">
+      <div class="tip-i">❌</div>
+      <div class="tip-info">
+        <strong>"Aplicar una encuesta a los pacientes"</strong>
+        <span>Esto es una actividad/tarea metodológica, no una meta de conocimiento.</span>
+      </div>
+    </div>
+    <div class="tip-row">
+      <div class="tip-i">✅</div>
+      <div class="tip-info">
+        <strong>"Identificar la percepción de los pacientes sobre la calidad del cuidado..."</strong>
+        <span>Expresa qué conocimiento se quiere generar, no cómo se va a obtener.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div id="s2" class="sec">
+  <div class="sec-h">Rigor científico: Criterios SMART y fórmula de redacción</div>
+  <p class="sec-lead">Para que un objetivo sea válido debe redactarse con precisión y claridad. El acrónimo SMART es la regla de oro. Hacé clic en cada letra para explorarla.</p>
+
+  <div class="smart-grid" id="sg">
+    <div class="sc" onclick="ts(this,'S','Specific','Específico','¿Qué se quiere lograr exactamente?','Evitá ambigüedades. El objetivo debe describir con claridad el fenómeno, la variable o el evento a estudiar. Por ejemplo, no basta con decir «estudiar el dolor»: debés especificar qué tipo de dolor, en qué población y en qué contexto clínico.')">
+      <div class="sl">S</div><div class="sw">Specific</div>
+    </div>
+    <div class="sc" onclick="ts(this,'M','Measurable','Medible','¿Es posible observar o cuantificar el fenómeno?','Debe existir la posibilidad de registrar datos o evidencias concretas. En enfermería esto implica seleccionar instrumentos validados: escalas (EVA, Likert, NSS), registros clínicos, observaciones directas, etc.')">
+      <div class="sl">M</div><div class="sw">Measurable</div>
+    </div>
+    <div class="sc" onclick="ts(this,'A','Achievable','Alcanzable','¿Es realista con los recursos y el tiempo disponibles?','El estudio debe ser factible. Considerá el acceso a la población, el presupuesto, el tiempo disponible y los permisos institucionales. Un objetivo inviable invalida todo el proyecto.')">
+      <div class="sl">A</div><div class="sw">Achievable</div>
+    </div>
+    <div class="sc" onclick="ts(this,'R','Relevant','Relevante','¿Aporta conocimiento significativo a la enfermería?','El objetivo debe responder a un problema real y contribuir al campo de la salud. En enfermería, la relevancia incluye impacto en la seguridad del paciente, la calidad del cuidado o la formación profesional.')">
+      <div class="sl">R</div><div class="sw">Relevant</div>
+    </div>
+    <div class="sc" onclick="ts(this,'T','Time-bound','Temporalizado','¿En qué período de tiempo se sitúa?','Todo objetivo debe circunscribirse a un lapso definido: semestre, año, período de internación. Esto permite planificar el cronograma, los recursos y establece cuándo se medirán los resultados.')">
+      <div class="sl">T</div><div class="sw">Time-bound</div>
+    </div>
+    <div class="sd" id="sd"></div>
+  </div>
+
+  <div class="fbox">
+    <div style="font-family:'Sora',sans-serif;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px">Fórmula de redacción</div>
+    <div>
+      <span class="fp">Verbo en infinitivo</span>
+      <span class="fplus">+</span>
+      <span class="fp">Variable / Evento</span>
+      <span class="fplus">+</span>
+      <span class="fp">Unidad de análisis (Población)</span>
+      <span class="fplus">+</span>
+      <span class="fp">Contexto (Lugar y Tiempo)</span>
+    </div>
+    <div class="fex">
+      <strong style="color:var(--teal)">Ejemplo aplicado:</strong><br>
+      <span style="color:var(--teal)">Determinar</span> [verbo] · la relación entre el nivel de estrés laboral y la ocurrencia de eventos adversos en la administración de medicamentos [variable] · por parte del personal de enfermería [población] · de la UTI del Hospital San Isidro en 2026 [contexto].
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-t">💡 Consejo para la redacción</div>
+    <p style="font-size:14px;color:#c5d0e8;line-height:1.7">Antes de escribir el objetivo, verificá que puedas responder las 5 preguntas SMART. Si alguna queda sin respuesta, el objetivo necesita ser reformulado. Este chequeo previo ahorra tiempo y evita correcciones en etapas avanzadas del proyecto.</p>
+  </div>
+</div>
+
+<!-- S3 -->
+<div id="s3" class="sec">
+  <div class="sec-h">La Taxonomía de Bloom aplicada a la investigación</div>
+  <p class="sec-lead">La Taxonomía de Bloom jerarquiza los procesos cognitivos. En investigación, el <strong style="color:var(--teal)">verbo elegido</strong> determina el alcance —nivel de profundidad— del estudio y condiciona el diseño metodológico completo.</p>
+
+  <div class="card" style="overflow-x:auto">
+    <table class="bloom-t">
+      <thead>
+        <tr>
+          <th>Nivel cognitivo (Bloom)</th>
+          <th>Alcance del estudio</th>
+          <th>Propósito del investigador</th>
+          <th>Verbos recomendados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="lbadge" style="background:rgba(74,144,226,0.13);color:#60a5fa">Conocimiento</span></td>
+          <td><span class="tag">Exploratorio</span></td>
+          <td style="font-size:13px">Familiarizarse con un fenómeno poco estudiado.</td>
+          <td style="color:var(--teal);font-size:13px">Definir, detectar, identificar, indagar, nombrar, explorar.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge" style="background:rgba(0,201,167,0.1);color:var(--teal)">Comprensión</span></td>
+          <td><span class="tag">Descriptivo</span></td>
+          <td style="font-size:13px">Narrar características, propiedades o perfiles de personas o grupos.</td>
+          <td style="color:var(--teal);font-size:13px">Caracterizar, clasificar, comparar, describir, reseñar, detallar.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge" style="background:rgba(167,139,250,0.13);color:var(--purple)">Análisis</span></td>
+          <td><span class="tag">Correlacional</span></td>
+          <td style="font-size:13px">Determinar cómo se relacionan dos o más variables entre sí.</td>
+          <td style="color:var(--teal);font-size:13px">Analizar, calcular, contrastar, diferenciar, relacionar, vincular.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge" style="background:rgba(245,158,11,0.13);color:var(--amber)">Evaluación / Síntesis</span></td>
+          <td><span class="tag">Explicativo</span></td>
+          <td style="font-size:13px">Encontrar las causas de los fenómenos o probar la eficacia de una intervención.</td>
+          <td style="color:var(--teal);font-size:13px">Comprobar, demostrar, determinar, establecer, evaluar, verificar.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip" style="margin-top:18px">
+    <div class="tip-t">🔑 Regla práctica: el verbo como brújula metodológica</div>
+    <p style="font-size:14px;color:#c5d0e8;line-height:1.7;margin-bottom:10px">El verbo no es un detalle estético: <strong style="color:#fff">define el diseño metodológico completo</strong>. Si elegís <em style="color:var(--teal)">describir</em> → diseño descriptivo transversal. Si elegís <em style="color:var(--teal)">relacionar</em> → diseño correlacional. Si elegís <em style="color:var(--teal)">comprobar</em> → diseño experimental o cuasi-experimental.</p>
+    <p style="font-size:14px;color:#c5d0e8;line-height:1.7">Antes de elegir el verbo, preguntate: ¿cuánto se sabe ya sobre este tema en enfermería? Si hay poca literatura → exploratorio. Si hay literatura pero no datos locales → descriptivo. Si querés probar una intervención → explicativo.</p>
+  </div>
+</div>
+
+<!-- S4 -->
+<div id="s4" class="sec">
+  <div class="sec-h">Banco de ejemplos en salud y enfermería</div>
+  <p class="sec-lead">40 ejemplos reales organizados por tipo. El verbo aparece destacado como referencia del nivel cognitivo utilizado.</p>
+
+  <div class="filter-row">
+    <button class="fb on" onclick="fe('all',this)">Todos (40)</button>
+    <button class="fb" onclick="fe('g',this)">Generales (20)</button>
+    <button class="fb" onclick="fe('e',this)">Específicos (20)</button>
+  </div>
+  <div id="exg"></div>
+</div>
+
+<!-- S5 -->
+<div id="s5" class="sec">
+  <div class="sec-h">Ejemplo de integración completa — Caso de estudio</div>
+  <p class="sec-lead">Para visualizar la coherencia de un proyecto, se presenta el siguiente esquema lógico. Observá cómo todos los elementos se articulan entre sí.</p>
+
+  <div class="coherence">
+    <div class="coh-card"><div class="coh-icon">📌</div><div class="coh-l">Tema</div><div class="coh-v">Estrés laboral y seguridad del paciente</div></div>
+    <div class="coh-card"><div class="coh-icon">❓</div><div class="coh-l">Pregunta</div><div class="coh-v">¿Qué relación existe?</div></div>
+    <div class="coh-card"><div class="coh-icon">🎯</div><div class="coh-l">Obj. General</div><div class="coh-v">Determinar la relación...</div></div>
+    <div class="coh-card"><div class="coh-icon">📋</div><div class="coh-l">Obj. Específicos</div><div class="coh-v">4 pasos operativos</div></div>
+  </div>
+
+  <div class="cb">
+    <div class="cb-l">A · Tema de investigación</div>
+    <div class="cb-t">El estrés laboral y su repercusión en la seguridad del paciente en enfermeros de áreas críticas.</div>
+  </div>
+  <div class="cb" style="border-left-color:var(--purple);background:rgba(167,139,250,0.03)">
+    <div class="cb-l" style="color:var(--purple)">B · Pregunta de investigación</div>
+    <div class="cb-t">¿Qué relación existe entre los niveles de estrés laboral del personal de enfermería y la frecuencia de errores en la administración de medicación en la Unidad de Terapia Intensiva del Hospital "San Isidro" durante el año 2026?</div>
+  </div>
+  <div class="cb" style="border-left-color:var(--teal);background:rgba(0,201,167,0.03)">
+    <div class="cb-l" style="color:var(--teal)">C · Objetivo General</div>
+    <div class="cb-t"><strong>Determinar</strong> la relación entre el nivel de estrés laboral y la ocurrencia de eventos adversos en la administración de medicamentos por parte del personal de enfermería de la UTI del Hospital San Isidro en 2026.</div>
+  </div>
+  <div class="cb" style="border-left-color:var(--amber);background:rgba(245,158,11,0.03)">
+    <div class="cb-l" style="color:var(--amber)">D · Objetivos Específicos</div>
+    <div class="cb-t">
+      1. <strong>Identificar</strong> el nivel de estrés laboral en el personal de enfermería mediante la escala <em>Nursing Stress Scale (NSS)</em>.<br><br>
+      2. <strong>Cuantificar</strong> el número de eventos adversos y "casi errores" registrados en la administración de fármacos durante el periodo de estudio.<br><br>
+      3. <strong>Caracterizar</strong> el perfil socioprofesional (edad, antigüedad, carga horaria) de los enfermeros participantes.<br><br>
+      4. <strong>Relacionar</strong> estadísticamente los puntajes de estrés con la tasa de errores de medicación identificados.
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:22px;border-color:rgba(0,201,167,0.25)">
+    <div class="card-t">¿Por qué este caso es un ejemplo de coherencia?</div>
+    <div class="hl">El <strong style="color:#fff">título</strong>, la <strong style="color:#fff">pregunta</strong> y el <strong style="color:#fff">objetivo general</strong> apuntan exactamente al mismo problema.</div>
+    <div class="hl">Los objetivos específicos desglosan <strong style="color:#fff">dimensiones operacionales distintas</strong>: medición (1), cuantificación (2), perfil (3) y análisis estadístico (4).</div>
+    <div class="hl">El objetivo general usa <em style="color:var(--teal)">Determinar</em> (Bloom: Análisis/Evaluación → diseño <strong style="color:#fff">correlacional</strong>), coherente con la pregunta.</div>
+    <div class="hl">Cada objetivo específico usa un <strong style="color:#fff">verbo de nivel cognitivo apropiado</strong> según su función en el estudio.</div>
+  </div>
+</div>
+
+<!-- S6 -->
+<div id="s6" class="sec">
+  <div class="sec-h">Errores frecuentes al formular objetivos</div>
+  <p class="sec-lead">Conocer los errores más comunes permite evitarlos desde el inicio. En la práctica docente y en comités de investigación, estos son los problemas que aparecen con mayor frecuencia.</p>
+
+  <div class="card" style="overflow-x:auto">
+    <table class="error-table">
+      <thead>
+        <tr>
+          <th style="width:22%">Error</th>
+          <th>Ejemplo incorrecto</th>
+          <th>Ejemplo correcto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600;color:#f87171;font-size:13px">Objetivo = actividad</td>
+          <td><span class="cross">✗</span><span style="font-size:13px">Aplicar una encuesta a los pacientes del servicio de guardia.</span></td>
+          <td><span class="check">✓</span><span style="font-size:13px">Identificar la percepción de los pacientes sobre la calidad de la atención en guardia.</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#f87171;font-size:13px">Verbo incorrecto</td>
+          <td><span class="cross">✗</span><span style="font-size:13px">"Conocer" los factores de riesgo de úlceras por presión. (Vago e impreciso.)</span></td>
+          <td><span class="check">✓</span><span style="font-size:13px">Identificar los factores de riesgo asociados al desarrollo de úlceras por presión estadio I.</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#f87171;font-size:13px">Sin población definida</td>
+          <td><span class="cross">✗</span><span style="font-size:13px">Describir el nivel de estrés en el personal de salud.</span></td>
+          <td><span class="check">✓</span><span style="font-size:13px">Describir el nivel de estrés laboral en enfermeros de turno nocturno del Hospital X durante 2026.</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#f87171;font-size:13px">Sin delimitación temporal</td>
+          <td><span class="cross">✗</span><span style="font-size:13px">Determinar la prevalencia de infecciones intrahospitalarias en la UCI.</span></td>
+          <td><span class="check">✓</span><span style="font-size:13px">Determinar la prevalencia de infecciones intrahospitalarias en la UCI durante el primer semestre de 2026.</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#f87171;font-size:13px">Obj. específico ≥ general</td>
+          <td><span class="cross">✗</span><span style="font-size:13px">Un objetivo específico que abarca más variables que el objetivo general.</span></td>
+          <td><span class="check">✓</span><span style="font-size:13px">Cada objetivo específico debe ser una dimensión parcial del general, no superarlo en alcance.</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#f87171;font-size:13px">Múltiples obj. generales</td>
+          <td><span class="cross">✗</span><span style="font-size:13px">Describir el estrés Y evaluar intervenciones Y analizar el clima laboral (tres estudios en uno).</span></td>
+          <td><span class="check">✓</span><span style="font-size:13px">Un único objetivo general que delimita con precisión el alcance del estudio.</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:#f87171;font-size:13px">Incoherencia con el título</td>
+          <td><span class="cross">✗</span><span style="font-size:13px">Título: "Burnout en enfermería" — Objetivo: "Evaluar la satisfacción laboral en médicos".</span></td>
+          <td><span class="check">✓</span><span style="font-size:13px">El título, la pregunta y el objetivo deben apuntar al mismo problema y la misma población.</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip" style="margin-top:20px">
+    <div class="tip-t">🛠️ Lista de verificación antes de entregar</div>
+    <div class="tip-row"><div class="tip-i">☑️</div><div class="tip-info"><strong>¿El verbo está en infinitivo?</strong><span>Determinar, analizar, evaluar... No "determinando" ni "se determinará".</span></div></div>
+    <div class="tip-row"><div class="tip-i">☑️</div><div class="tip-info"><strong>¿El objetivo es coherente con el título y la pregunta?</strong><span>Misma variable, misma población, mismo contexto.</span></div></div>
+    <div class="tip-row"><div class="tip-i">☑️</div><div class="tip-info"><strong>¿Los objetivos específicos no se repiten entre sí?</strong><span>Cada uno debe abordar una dimensión distinta.</span></div></div>
+    <div class="tip-row"><div class="tip-i">☑️</div><div class="tip-info"><strong>¿El nivel cognitivo del verbo es coherente con el diseño metodológico?</strong><span>Verbo exploratorio → diseño exploratorio. Verbo evaluativo → diseño experimental.</span></div></div>
+    <div class="tip-row"><div class="tip-i">☑️</div><div class="tip-info"><strong>¿Cumple los 5 criterios SMART?</strong><span>Específico, medible, alcanzable, relevante y temporalizado.</span></div></div>
+  </div>
+</div>
+
+<!-- S7 -->
+<div id="s7" class="sec">
+  <div class="sec-h">Bibliografía de referencia</div>
+  <p class="sec-lead">Fuentes utilizadas en la elaboración de esta guía y referencias recomendadas para profundizar en metodología de la investigación en enfermería.</p>
+
+  <div class="sub-h">Fuentes citadas en la guía</div>
+
+  <div class="bib-item">
+    <div class="bib-year">2012</div>
+    <div class="bib-txt"><strong style="color:#dde3f0">Arias, F. G.</strong> (2012). <em>El proyecto de investigación: Introducción a la metodología científica</em> (6.ª ed.). Editorial Episteme.</div>
+  </div>
+  <div class="bib-item">
+    <div class="bib-year">2001</div>
+    <div class="bib-txt"><strong style="color:#dde3f0">Anderson, L. W. & Krathwohl, D. R.</strong> (Eds.). (2001). <em>A taxonomy for learning, teaching, and assessing: A revision of Bloom's Taxonomy of Educational Objectives.</em> Longman.</div>
+  </div>
+  <div class="bib-item">
+    <div class="bib-year">2010</div>
+    <div class="bib-txt"><strong style="color:#dde3f0">Hernández Sampieri, R., Fernández Collado, C., & Baptista Lucio, P.</strong> (2010). <em>Metodología de la investigación</em> (5.ª ed.). McGraw-Hill.</div>
+  </div>
+  <div class="bib-item">
+    <div class="bib-year">2011</div>
+    <div class="bib-txt"><strong style="color:#dde3f0">Bunge, M.</strong> (2011). <em>La investigación científica: su estrategia y su filosofía.</em> Siglo XXI Editores.</div>
+  </div>
+
+  <div class="sub-h">Bibliografía ampliada — Enfermería e investigación en salud</div>
+
+  <div class="bib-item">
+    <div class="bib-year">2017</div>
+    <div class="bib-txt"><strong style="color:#dde3f0">Burns, N. & Grove, S. K.</strong> (2017). <em>Investigación en Enfermería: Desarrollo de la práctica enfermera basada en la evidencia</em> (6.ª ed.). Elsevier.</div>
+  </div>
+  <div class="bib-item">
+    <div class="bib-year">2014</div>
+    <div class="bib-txt"><strong style="color:#dde3f0">Polit, D. F. & Beck, C. T.</strong> (2014). <em>Investigación en Enfermería: Fundamentos para el uso de la evidencia en la práctica de enfermería</em> (9.ª ed.). Wolters Kluwer.</div>
+  </div>
+  <div class="bib-item">
+    <div class="bib-year">2019</div>
+    <div class="bib-txt"><strong style="color:#dde3f0">Morán Barrios, J. & Grzona, M. E.</strong> (2019). <em>Metodología de la Investigación.</em> Editorial Brujas.</div>
+  </div>
+  <div class="bib-item">
+    <div class="bib-year">2018</div>
+    <div class="bib-txt"><strong style="color:#dde3f0">Asociación Latinoamericana de Escuelas y Facultades de Enfermería (ALADEFE).</strong> (2018). <em>Líneas prioritarias de investigación en enfermería para América Latina.</em></div>
+  </div>
+  <div class="bib-item">
+    <div class="bib-year">2022</div>
+    <div class="bib-txt"><strong style="color:#dde3f0">Ministerio de Salud de la Nación Argentina.</strong> (2022). <em>Manual de procedimientos para la investigación en salud.</em></div>
+  </div>
+
+  <div class="tip" style="margin-top:22px">
+    <div class="tip-t">📚 Bases de datos recomendadas para buscar evidencia</div>
+    <div class="tip-row"><div class="tip-i">🔬</div><div class="tip-info"><strong>PubMed / MEDLINE</strong><span>Literatura biomédica y de enfermería. pubmed.ncbi.nlm.nih.gov</span></div></div>
+    <div class="tip-row"><div class="tip-i">🔬</div><div class="tip-info"><strong>LILACS / BVS</strong><span>Literatura latinoamericana en ciencias de la salud. bvsalud.org</span></div></div>
+    <div class="tip-row"><div class="tip-i">🔬</div><div class="tip-info"><strong>CUIDEN</strong><span>Base de datos especializada en enfermería en español. index-f.com</span></div></div>
+    <div class="tip-row"><div class="tip-i">🔬</div><div class="tip-info"><strong>Cochrane Library</strong><span>Revisiones sistemáticas y metaanálisis. cochranelibrary.com</span></div></div>
+    <div class="tip-row"><div class="tip-i">🔬</div><div class="tip-info"><strong>SciELO</strong><span>Revistas científicas iberoamericanas. scielo.org</span></div></div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <p>Guía elaborada por <strong>Profe Vanesa Ferreyra</strong> · Cátedra de Investigación en Enfermería</p>
+  <p>Basada en Arias (2012) · Anderson & Krathwohl (2001) · Hernández Sampieri et al. (2010) · Burns & Grove (2017) · Polit & Beck (2014)</p>
+</footer>
+
+<script>
+const progs=[14,28,43,57,71,85,100];
+
+function show(id,btn,n){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('prog').style.width=progs[n-1]+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+let openS='';
+function ts(el,letter,en,es,q,a){
+  const d=document.getElementById('sd');
+  document.querySelectorAll('.sc').forEach(c=>c.classList.remove('open'));
+  if(openS===letter){d.classList.remove('show');openS='';return;}
+  el.classList.add('open');
+  d.innerHTML=`<div class="sd-q">${letter} — ${es} (${en}): ${q}</div><div class="sd-a">${a}</div>`;
+  d.classList.add('show');
+  openS=letter;
+}
+
+const GEN=[
+  {v:'Determinar',r:'la relación entre el nivel de ansiedad prequirúrgica y la percepción de dolor postoperatorio en adultos del Hospital X.'},
+  {v:'Analizar',r:'los factores socioeconómicos asociados al rendimiento académico de estudiantes de enfermería durante el ciclo 2026.'},
+  {v:'Evaluar',r:'la eficacia de un programa de educación sanitaria en la adherencia al tratamiento de pacientes con Diabetes Mellitus tipo 2.'},
+  {v:'Establecer',r:'la prevalencia de infecciones intrahospitalarias en la Unidad de Cuidados Intensivos durante el primer semestre de 2026.'},
+  {v:'Caracterizar',r:'las estrategias de gestión docente para promover el aprendizaje significativo en entornos virtuales.'},
+  {v:'Comprobar',r:'el efecto del contacto piel a piel temprano en la estabilidad térmica del recién nacido prematuro.'},
+  {v:'Determinar',r:'las causas del síndrome de Burnout en el personal de enfermería de guardia nocturna.'},
+  {v:'Evaluar',r:'la calidad del cuidado humanizado percibida por los pacientes en servicios de oncología pediátrica.'},
+  {v:'Relacionar',r:'la calidad del sueño con el nivel de estrés laboral en enfermeros de emergencias.'},
+  {v:'Describir',r:'el nivel de conocimientos sobre normas de bioseguridad en el manejo de residuos patogénicos.'},
+  {v:'Determinar',r:'la influencia del apoyo familiar en la recuperación post-parto de madres adolescentes.'},
+  {v:'Analizar',r:'el impacto del uso de software especializado (ATLAS.ti) en la eficiencia de la investigación cualitativa.'},
+  {v:'Establecer',r:'el impacto psicológico del diagnóstico de enfermedades crónicas en adultos jóvenes.'},
+  {v:'Validar',r:'un instrumento de medición de la satisfacción del paciente en servicios de atención domiciliaria.'},
+  {v:'Comparar',r:'la efectividad de la cura húmeda vs. cura seca en el tratamiento de úlceras por presión estadio II.'},
+  {v:'Identificar',r:'factores de riesgo ambientales para el desarrollo de asma infantil en zonas urbanas.'},
+  {v:'Describir',r:'las representaciones sociales de la lactancia materna en madres primerizas.'},
+  {v:'Determinar',r:'la correlación entre el clima laboral y la rotación del personal de enfermería.'},
+  {v:'Evaluar',r:'los efectos de la intervención de enfermería basada en música para reducir la agitación en pacientes con demencia.'},
+  {v:'Determinar',r:'la eficacia de un protocolo de prevención de caídas en el servicio de geriatría.'},
+];
+
+const ESP=[
+  {v:'Identificar',r:'el nivel de ansiedad basal mediante el inventario de Ansiedad de Beck.'},
+  {v:'Cuantificar',r:'el ingreso económico mensual de los hogares de los estudiantes evaluados.'},
+  {v:'Describir',r:'la frecuencia de las prácticas de autocuidado en pacientes hipertensos.'},
+  {v:'Registrar',r:'los valores de temperatura axilar del neonato cada 30 minutos.'},
+  {v:'Categorizar',r:'los tipos de liderazgo ejercidos por los supervisores de área.'},
+  {v:'Comparar',r:'las complicaciones postoperatorias entre pacientes que recibieron educación previa y los que no.'},
+  {v:'Definir',r:'las dimensiones del bienestar subjetivo reportadas por el personal de salud.'},
+  {v:'Determinar',r:'el grado de escolaridad alcanzado por los cuidadores primarios.'},
+  {v:'Identificar',r:'los ruidos ambientales más frecuentes que interrumpen el descanso hospitalario.'},
+  {v:'Enumerar',r:'las barreras percibidas por los enfermeros para realizar investigación clínica.'},
+  {v:'Comparar',r:'los tiempos de cicatrización según el apósito utilizado.'},
+  {v:'Clasificar',r:'los agentes infecciosos más comunes aislados en cultivos de catéteres.'},
+  {v:'Describir',r:'los sentimientos expresados por los padres ante el primer ingreso a la UCIN.'},
+  {v:'Analizar',r:'la correspondencia entre los registros de enfermería y las acciones realizadas.'},
+  {v:'Detectar',r:'deficiencias en la técnica de lavado de manos mediante observación directa.'},
+  {v:'Examinar',r:'las creencias culturales sobre la alimentación durante el puerperio.'},
+  {v:'Relacionar',r:'los años de experiencia profesional con la destreza en procedimientos complejos.'},
+  {v:'Identificar',r:'el uso de bases de datos científicas por parte del estudiantado.'},
+  {v:'Calcular',r:'el índice de masa corporal (IMC) inicial de la población de estudio.'},
+  {v:'Sintetizar',r:'las mejores evidencias disponibles en las guías de práctica clínica sobre dolor crónico.'},
+];
+
+function fe(f,btn){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderEx(f);
+}
+
+function renderEx(f){
+  const g=document.getElementById('exg');
+  g.innerHTML='';
+  let items=[];
+  if(f==='all'||f==='g') GEN.forEach((e,i)=>items.push({n:i+1,v:e.v,r:e.r,t:'g'}));
+  if(f==='all'||f==='e') ESP.forEach((e,i)=>items.push({n:i+1,v:e.v,r:e.r,t:'e'}));
+  items.forEach(item=>{
+    g.innerHTML+=`<div class="ex-card">
+      <div class="ex-row">
+        <div class="ex-n">${item.n}</div>
+        <div class="ex-txt"><span class="ex-v">${item.v}</span>${item.r}</div>
+      </div>
+      <span class="ex-badge ${item.t==='g'?'badge-g':'badge-e'}">${item.t==='g'?'General':'Específico'}</span>
+    </div>`;
+  });
+}
+renderEx('all');
+</script>
+</body>
+</html>
